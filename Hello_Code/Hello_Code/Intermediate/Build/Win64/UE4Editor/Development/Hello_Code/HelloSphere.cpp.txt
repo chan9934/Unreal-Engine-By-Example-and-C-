@@ -1,0 +1,17 @@
+D:\HelloUnreal\Hello_Code\Hello_Code\Intermediate\Build\Win64\UE4Editor\Development\Hello_Code\Definitions.Hello_Code.h
+D:\HelloUnreal\Hello_Code\Hello_Code\Source\Hello_Code\HelloSphere.h
+D:\HelloUnreal\Hello_Code\Hello_Code\Intermediate\Build\Win64\UE4Editor\Inc\Hello_Code\HelloSphere.generated.h
+D:\UE_4.27\Engine\Source\Runtime\Engine\Classes\Components/SphereComponent.h
+D:\UE_4.27\Engine\Source\Runtime\Engine\Classes\Components/ShapeComponent.h
+D:\UE_4.27\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\ShapeComponent.generated.h
+D:\UE_4.27\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\SphereComponent.generated.h
+D:\HelloUnreal\Hello_Code\Hello_Code\Source\Hello_Code\Hello_Code.h
+D:\UE_4.27\Engine\Source\Runtime\Engine\Classes\Particles/ParticleSystemComponent.h
+D:\UE_4.27\Engine\Source\Runtime\Engine\Classes\Particles/ParticleSystem.h
+D:\UE_4.27\Engine\Source\Runtime\Engine\Classes\Particles/ParticlePerfStats.h
+D:\UE_4.27\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\ParticleSystem.generated.h
+D:\UE_4.27\Engine\Source\Runtime\Engine\Classes\Particles/Emitter.h
+D:\UE_4.27\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\Emitter.generated.h
+D:\UE_4.27\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\ParticleSystemComponent.generated.h
+D:\UE_4.27\Engine\Source\Runtime\Engine\Classes\Components/TextRenderComponent.h
+D:\UE_4.27\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\TextRenderComponent.generated.h

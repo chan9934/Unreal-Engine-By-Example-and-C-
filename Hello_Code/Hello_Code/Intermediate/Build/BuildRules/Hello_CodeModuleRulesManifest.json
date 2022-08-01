@@ -1,0 +1,8 @@
+{
+	"SourceFiles": [
+		"D:\\HelloUnreal\\Hello_Code\\Hello_Code\\Source\\Hello_Code\\Hello_Code.Build.cs",
+		"D:\\HelloUnreal\\Hello_Code\\Hello_Code\\Source\\Hello_Code.Target.cs",
+		"D:\\HelloUnreal\\Hello_Code\\Hello_Code\\Source\\Hello_CodeEditor.Target.cs"
+	],
+	"EngineVersion": "4.27.2"
+}

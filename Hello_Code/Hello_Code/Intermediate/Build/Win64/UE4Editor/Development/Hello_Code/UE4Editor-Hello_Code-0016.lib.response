@@ -1,0 +1,17 @@
+/NOLOGO
+/errorReport:prompt
+/MACHINE:x64
+/SUBSYSTEM:WINDOWS
+/DEF
+/NAME:"UE4Editor-Hello_Code-0016.dll"
+/IGNORE:4221
+/NODEFAULTLIB
+"D:\HelloUnreal\Hello_Code\Hello_Code\Intermediate\Build\Win64\Hello_CodeEditor\Development\Engine\SharedPCH.Engine.ShadowErrors.h.obj"
+"D:\HelloUnreal\Hello_Code\Hello_Code\Intermediate\Build\Win64\UE4Editor\Development\Hello_Code\HelloSphere.cpp.obj"
+"D:\HelloUnreal\Hello_Code\Hello_Code\Intermediate\Build\Win64\UE4Editor\Development\Hello_Code\Hello_Code.cpp.obj"
+"D:\HelloUnreal\Hello_Code\Hello_Code\Intermediate\Build\Win64\UE4Editor\Development\Hello_Code\Hello_CodeGameModeBase.cpp.obj"
+"D:\HelloUnreal\Hello_Code\Hello_Code\Intermediate\Build\Win64\UE4Editor\Development\Hello_Code\HelloSphere.gen.cpp.obj"
+"D:\HelloUnreal\Hello_Code\Hello_Code\Intermediate\Build\Win64\UE4Editor\Development\Hello_Code\Hello_Code.init.gen.cpp.obj"
+"D:\HelloUnreal\Hello_Code\Hello_Code\Intermediate\Build\Win64\UE4Editor\Development\Hello_Code\Hello_CodeGameModeBase.gen.cpp.obj"
+"D:\HelloUnreal\Hello_Code\Hello_Code\Intermediate\Build\Win64\UE4Editor\Development\Hello_Code\Default.rc2.res"
+/OUT:"D:\HelloUnreal\Hello_Code\Hello_Code\Intermediate\Build\Win64\UE4Editor\Development\Hello_Code\UE4Editor-Hello_Code-0016.lib"
