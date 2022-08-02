@@ -8,14 +8,25 @@
 #include "UObject/ScriptMacros.h"
 
 PRAGMA_DISABLE_DEPRECATION_WARNINGS
+class AActor;
 #ifdef HELLO_CODE_HelloSphere_generated_h
 #error "HelloSphere.generated.h already included, missing '#pragma once' in HelloSphere.h"
 #endif
 #define HELLO_CODE_HelloSphere_generated_h
 
 #define Hello_Code_Source_Hello_Code_HelloSphere_h_12_SPARSE_DATA
-#define Hello_Code_Source_Hello_Code_HelloSphere_h_12_RPC_WRAPPERS
-#define Hello_Code_Source_Hello_Code_HelloSphere_h_12_RPC_WRAPPERS_NO_PURE_DECLS
+#define Hello_Code_Source_Hello_Code_HelloSphere_h_12_RPC_WRAPPERS \
+ \
+	DECLARE_FUNCTION(execMyOnEndOverlap); \
+	DECLARE_FUNCTION(execMyOnBeginOverlap);
+
+
+#define Hello_Code_Source_Hello_Code_HelloSphere_h_12_RPC_WRAPPERS_NO_PURE_DECLS \
+ \
+	DECLARE_FUNCTION(execMyOnEndOverlap); \
+	DECLARE_FUNCTION(execMyOnBeginOverlap);
+
+
 #define Hello_Code_Source_Hello_Code_HelloSphere_h_12_INCLASS_NO_PURE_DECLS \
 private: \
 	static void StaticRegisterNativesAHelloSphere(); \

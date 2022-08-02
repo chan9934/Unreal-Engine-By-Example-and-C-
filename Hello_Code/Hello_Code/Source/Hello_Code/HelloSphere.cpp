@@ -3,9 +3,20 @@
 
 #include "HelloSphere.h"
 #include "Components/SphereComponent.h"
-#include "Hello_Code.h"
 #include "Particles/ParticleSystemComponent.h"
 #include "Components/TextRenderComponent.h"
+
+void AHelloSphere::MyOnBeginOverlap(AActor* OverlappedActor, AActor* otherActor)
+{
+	FString outputString;
+	outputString = "Hello " + otherActor->GetName() + "!";
+	TextRenderComponent->SetText(FText::FromString(outputString));
+}
+
+void AHelloSphere::MyOnEndOverlap(AActor* OverlappedActor, AActor* otherActor)
+{
+	TextRenderComponent->SetText(NSLOCTEXT("AnyNs", "Any", "HelloWorld"));
+}
 
 // Sets default values
 AHelloSphere::AHelloSphere()
@@ -23,11 +34,14 @@ AHelloSphere::AHelloSphere()
 
 	UStaticMeshComponent* SphereVisual = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("SphereMesh"));
 	SphereVisual->AttachTo(RootComponent);
-	ConstructorHelpers::FObjectFinder<UStaticMesh> SphereAsset(TEXT("/Game/StarterContent/Shapes/Shape_Sphere.Shape_Sphere"));
+	ConstructorHelpers::FObjectFinder<UStaticMesh> SphereVisualAsset(TEXT("/Game/StarterContent/Shapes/Shape_Sphere.Shape_Sphere"));
+	
+	ConstructorHelpers::FObjectFinder<UMaterial> SphereMaterial(TEXT("/Game/StarterContent/Materials/M_Metal_Burnished_Steel.M_Metal_Burnished_Steel"));
 
-	if (SphereAsset.Succeeded())
+	if (SphereVisualAsset.Succeeded() && SphereMaterial.Succeeded())
 	{
-		SphereVisual->SetStaticMesh(SphereAsset.Object);
+		SphereVisual->SetStaticMesh(SphereVisualAsset.Object);
+		SphereVisual->SetMaterial(0, SphereMaterial.Object);
 		SphereVisual->SetRelativeLocation(FVector(0.0f, 0.0f, -50.0f));
 	}
 	UParticleSystemComponent* FireParticles = CreateDefaultSubobject<UParticleSystemComponent>(TEXT("FireParticles"));
@@ -52,8 +66,12 @@ AHelloSphere::AHelloSphere()
 	TextRenderComponent->SetXScale(2.0f);
 	TextRenderComponent->SetVisibility(true);
 	TextRenderComponent->SetText(NSLOCTEXT("AnyNs", "Any", "Helloworld"));
+	OnActorBeginOverlap.AddDynamic(this, &AHelloSphere::MyOnBeginOverlap);
+	OnActorEndOverlap.AddDynamic(this, &AHelloSphere::MyOnEndOverlap);
 
 }
+
+
 
 // Called when the game starts or when spawned
 void AHelloSphere::BeginPlay()

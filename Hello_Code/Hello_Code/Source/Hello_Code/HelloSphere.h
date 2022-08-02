@@ -2,7 +2,7 @@
 
 #pragma once
 
-#include "CoreMinimal.h"
+#include "EngineMinimal.h"
 #include "GameFramework/Actor.h"
 #include "HelloSphere.generated.h"
 
@@ -12,8 +12,11 @@ class HELLO_CODE_API AHelloSphere : public AActor
 	GENERATED_BODY()
 
 protected:
-	
 	class UTextRenderComponent* TextRenderComponent;
+	UFUNCTION()
+		void MyOnBeginOverlap(AActor* OverlappedActor, AActor* otherActor);
+	UFUNCTION()
+		void MyOnEndOverlap(AActor* OverlappedActor, AActor* otherActor);
 	
 public:	
 	// Sets default values for this actor's properties

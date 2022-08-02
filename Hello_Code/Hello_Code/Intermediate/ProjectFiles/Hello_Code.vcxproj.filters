@@ -3,7 +3,7 @@
   <ItemGroup>
     <None Include="..\..\Hello_Code.uproject" />
     <Filter Include="Source">
-      <UniqueIdentifier>{28DC4E75-D9A8-41C7-BD0A-BC363CDD6922}</UniqueIdentifier>
+      <UniqueIdentifier>{5474B846-AA64-4683-A47B-2C27F1E8D24A}</UniqueIdentifier>
     </Filter>
     <None Include="..\..\Source\Hello_Code.Target.cs">
       <Filter>Source</Filter>
@@ -12,7 +12,7 @@
       <Filter>Source</Filter>
     </None>
     <Filter Include="Config">
-      <UniqueIdentifier>{22944FA4-6E23-4A99-8259-98A3B77C0E67}</UniqueIdentifier>
+      <UniqueIdentifier>{7F2A31A1-EBD2-4B96-955C-0F4FDD966435}</UniqueIdentifier>
     </Filter>
     <None Include="..\..\Config\DefaultEditor.ini">
       <Filter>Config</Filter>
@@ -24,7 +24,7 @@
       <Filter>Config</Filter>
     </None>
     <Filter Include="Source\Hello_Code">
-      <UniqueIdentifier>{9CC981A4-BEF7-444E-ADC3-517190DD8113}</UniqueIdentifier>
+      <UniqueIdentifier>{17809ADC-0FB0-4968-B0A3-8F924879650D}</UniqueIdentifier>
     </Filter>
     <ClCompile Include="..\..\Source\Hello_Code\HelloSphere.cpp">
       <Filter>Source\Hello_Code</Filter>
@@ -45,6 +45,12 @@
       <Filter>Source\Hello_Code</Filter>
     </ClCompile>
     <ClInclude Include="..\..\Source\Hello_Code\Hello_CodeGameModeBase.h">
+      <Filter>Source\Hello_Code</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\Hello_Code\HybridSphere.cpp">
+      <Filter>Source\Hello_Code</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\Hello_Code\HybridSphere.h">
       <Filter>Source\Hello_Code</Filter>
     </ClInclude>
   </ItemGroup>
