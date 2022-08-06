@@ -3,7 +3,7 @@
   <ItemGroup>
     <None Include="..\..\Hello_Code.uproject" />
     <Filter Include="Source">
-      <UniqueIdentifier>{5D407123-D875-45A1-9268-D0157883DE0B}</UniqueIdentifier>
+      <UniqueIdentifier>{04B8C45B-79AB-4E56-AF79-2EE850A21215}</UniqueIdentifier>
     </Filter>
     <None Include="..\..\Source\Hello_Code.Target.cs">
       <Filter>Source</Filter>
@@ -12,7 +12,7 @@
       <Filter>Source</Filter>
     </None>
     <Filter Include="Config">
-      <UniqueIdentifier>{F608A7F7-21CB-45EC-A843-0B5F1E790B3C}</UniqueIdentifier>
+      <UniqueIdentifier>{0E6DAF01-9987-4F64-B419-95CF109E8C1C}</UniqueIdentifier>
     </Filter>
     <None Include="..\..\Config\DefaultEditor.ini">
       <Filter>Config</Filter>
@@ -23,13 +23,22 @@
     <None Include="..\..\Config\DefaultGame.ini">
       <Filter>Config</Filter>
     </None>
+    <None Include="..\..\Config\DefaultInput.ini">
+      <Filter>Config</Filter>
+    </None>
     <Filter Include="Source\Hello_Code">
-      <UniqueIdentifier>{6922FCDD-96A7-422F-997B-42BBA156DEDE}</UniqueIdentifier>
+      <UniqueIdentifier>{1DAA53F4-06DC-4197-976B-86DD53D63604}</UniqueIdentifier>
     </Filter>
     <ClCompile Include="..\..\Source\Hello_Code\BountyDashCharacter.cpp">
       <Filter>Source\Hello_Code</Filter>
     </ClCompile>
     <ClInclude Include="..\..\Source\Hello_Code\BountyDashCharacter.h">
+      <Filter>Source\Hello_Code</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\Hello_Code\BountyDashGameMode.cpp">
+      <Filter>Source\Hello_Code</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\Hello_Code\BountyDashGameMode.h">
       <Filter>Source\Hello_Code</Filter>
     </ClInclude>
     <ClCompile Include="..\..\Source\Hello_Code\HelloSphere.cpp">
