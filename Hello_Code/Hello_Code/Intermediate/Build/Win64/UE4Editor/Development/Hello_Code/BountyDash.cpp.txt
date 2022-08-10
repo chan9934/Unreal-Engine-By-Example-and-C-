@@ -1,0 +1,2 @@
+D:\HelloUnreal\Hello_Code\Hello_Code\Intermediate\Build\Win64\UE4Editor\Development\Hello_Code\Definitions.Hello_Code.h
+D:\HelloUnreal\Hello_Code\Hello_Code\Source\Hello_Code\BountyDash.h
