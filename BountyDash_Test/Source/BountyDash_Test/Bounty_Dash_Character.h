@@ -18,6 +18,7 @@ class BOUNTYDASH_TEST_API ABounty_Dash_Character : public ACharacter
 public:
 	// Sets default values for this character's properties
 	ABounty_Dash_Character();
+
 private:
 	UPROPERTY(EditAnywhere, Category = Logic)
 	TArray<ATargetPoint*> Target_Arr;
@@ -29,15 +30,18 @@ private:
 	
 	bool BeingPush;
 
-	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = Camera)
-		USpringArmComponent* CameraBoom;
-	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = Camera)
-		UCameraComponent* FollowCamera;
+		
 		
 
 protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
+	void MoveRight();
+	void MoveLeft();
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = Camera)
+		USpringArmComponent* CameraBoom;
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = Camera)
+		UCameraComponent* FollowCamera;
 
 public:	
 	// Called every frame

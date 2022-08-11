@@ -5,6 +5,9 @@
 #include "Components/CapsuleComponent.h"
 #include "GameFramework/CharacterMovementComponent.h"
 #include "GameFramework/SpringArmComponent.h"
+#include "Camera/CameraComponent.h"
+#include "EngineUtils.h"
+#include "Engine/TargetPoint.h"
 
 
 // Sets default values
@@ -42,13 +45,33 @@ ABounty_Dash_Character::ABounty_Dash_Character()
 
 	CameraBoom->AddRelativeLocation(FVector(0.0f, 0.0f, 160.0f));
 
-	FollowCamera = CreateDefaultSubobject
+	FollowCamera = CreateDefaultSubobject<UCameraComponent>(TEXT("FollowCamera"));
+	check(FollowCamera);
+	FollowCamera->AttachTo(CameraBoom, USpringArmComponent::SocketName);
+
+	FollowCamera->AddRelativeRotation(FQuat(FRotator(-10.0f, 0.0f, 0.0f)));
+
+	CharSpeed = 10.0f;
+
+	AutoPossessPlayer = EAutoReceiveInput::Player0;
+
+	/*GetCapsuleComponent()->OnComponentBeginOverlap.AddDynamic(this, ABounty_Dash_Character::MyOnComponentOverlap);*/
 }
 
 // Called when the game starts or when spawned
 void ABounty_Dash_Character::BeginPlay()
 {
 	Super::BeginPlay();
+	for (TActorIterator<ATargetPoint>TargetIter(GetWorld()); TargetIter; ++TargetIter)
+	{
+		Target_Arr.Add(*TargetIter);
+	}
+	auto SortPred = [](const AActor& A, const AActor& B)->bool
+	{
+		return A.GetActorLocation().Y > B.GetActorLocation().Y;
+	};
+	Target_Arr.Sort(SortPred);
+	CurrentLocation = Target_Arr.Num() / 2 + Target_Arr.Num() % 2 - 1;
 	
 }
 
@@ -56,6 +79,18 @@ void ABounty_Dash_Character::BeginPlay()
 void ABounty_Dash_Character::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
+	if (Target_Arr.Num() > 0)
+	{
+		FVector Target_Loc = Target_Arr[CurrentLocation]->GetActorLocation();
+		Target_Loc.X = GetActorLocation().X;
+		Target_Loc.Z = GetActorLocation().Z;
+		if (Target_Loc != GetActorLocation())
+		{
+			SetActorLocation(FMath::Lerp(GetActorLocation(), Target_Loc, DeltaTime * CharSpeed));
+		}
+	
+		
+	}
 
 }
 
@@ -64,5 +99,42 @@ void ABounty_Dash_Character::SetupPlayerInputComponent(UInputComponent* PlayerIn
 {
 	Super::SetupPlayerInputComponent(PlayerInputComponent);
 
+	check(InputComponent);
+	InputComponent->BindAction("Jump", IE_Pressed, this, &ACharacter::Jump);
+	InputComponent->BindAction("Jump", IE_Pressed, this, &ACharacter::StopJumping);
+	InputComponent->BindAction("MoveRight", IE_Pressed, this, &ABounty_Dash_Character::MoveRight);
+	InputComponent->BindAction("MoveLeft", IE_Released, this, &ABounty_Dash_Character::MoveLeft);
+
+
 }
 
+void ABounty_Dash_Character::MoveRight()
+{
+	if ((Controller != nullptr))
+	{
+		if (CurrentLocation < Target_Arr.Num() - 1)
+		{
+			++CurrentLocation;
+		}
+		else
+		{
+			//아무것도 하지 않는다.
+		}
+	}
+
+}
+
+void ABounty_Dash_Character::MoveLeft()
+{
+	if (Controller != nullptr)
+	{
+		if (CurrentLocation > 0)
+		{
+			--CurrentLocation;
+		}
+		else
+		{
+			// 아무것도 하지 않는다
+		}
+	}
+}
