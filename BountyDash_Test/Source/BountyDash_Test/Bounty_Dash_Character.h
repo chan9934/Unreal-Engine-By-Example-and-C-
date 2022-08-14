@@ -28,8 +28,12 @@ private:
 
 	short CurrentLocation;
 	
-	bool BeingPush;
+	bool bBeingPushed;
 
+
+
+public:
+	void ScoreUp();
 		
 		
 
@@ -42,6 +46,15 @@ protected:
 		USpringArmComponent* CameraBoom;
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = Camera)
 		UCameraComponent* FollowCamera;
+	UPROPERTY(BlueprintReadOnly)
+		int32 Score;
+
+	UFUNCTION()
+		void MyOnComponentOverlap(class UPrimitiveComponent* OverlappedComp, AActor* OtherActor, class UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult& SweepResult);
+
+	UFUNCTION()
+		void MyOnComponentEndOverlap(class UPrimitiveComponent* OverlappedComp, AActor* OtherActor, class  UPrimitiveComponent* OtherComp, int32 OtherBodyIndex);
+
 
 public:	
 	// Called every frame

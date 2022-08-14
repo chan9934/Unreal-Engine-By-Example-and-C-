@@ -21,7 +21,7 @@ void EmptyLinkFunctionForGeneratedCodeBountyDash_Test_init() {}
 				nullptr,
 				0,
 				PKG_CompiledIn | 0x00000000,
-				0x27334245,
+				0xC078B1AA,
 				0x607C52FF,
 				METADATA_PARAMS(nullptr, 0)
 			};

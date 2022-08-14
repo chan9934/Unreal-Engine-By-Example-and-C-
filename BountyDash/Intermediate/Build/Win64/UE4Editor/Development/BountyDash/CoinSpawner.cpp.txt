@@ -6,6 +6,8 @@ D:\UE_4.27\Engine\Source\Runtime\Engine\Classes\Engine/TargetPoint.h
 D:\UE_4.27\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\TargetPoint.generated.h
 D:\HelloUnreal\BountyDash\Source\BountyDash\Coin.h
 D:\HelloUnreal\BountyDash\Source\BountyDash\Obstacle.h
+D:\HelloUnreal\BountyDash\Source\BountyDash\BountyDashObject.h
+D:\HelloUnreal\BountyDash\Intermediate\Build\Win64\UE4Editor\Inc\BountyDash\BountyDashObject.generated.h
 D:\HelloUnreal\BountyDash\Intermediate\Build\Win64\UE4Editor\Inc\BountyDash\Obstacle.generated.h
 D:\HelloUnreal\BountyDash\Intermediate\Build\Win64\UE4Editor\Inc\BountyDash\Coin.generated.h
 D:\HelloUnreal\BountyDash\Source\BountyDash\Floor.h

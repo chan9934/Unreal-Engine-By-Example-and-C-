@@ -8,14 +8,27 @@
 #include "UObject/ScriptMacros.h"
 
 PRAGMA_DISABLE_DEPRECATION_WARNINGS
+class UPrimitiveComponent;
+class AActor;
+struct FHitResult;
 #ifdef BOUNTYDASH_TEST_Bounty_Dash_Character_generated_h
 #error "Bounty_Dash_Character.generated.h already included, missing '#pragma once' in Bounty_Dash_Character.h"
 #endif
 #define BOUNTYDASH_TEST_Bounty_Dash_Character_generated_h
 
 #define BountyDash_Test_Source_BountyDash_Test_Bounty_Dash_Character_h_16_SPARSE_DATA
-#define BountyDash_Test_Source_BountyDash_Test_Bounty_Dash_Character_h_16_RPC_WRAPPERS
-#define BountyDash_Test_Source_BountyDash_Test_Bounty_Dash_Character_h_16_RPC_WRAPPERS_NO_PURE_DECLS
+#define BountyDash_Test_Source_BountyDash_Test_Bounty_Dash_Character_h_16_RPC_WRAPPERS \
+ \
+	DECLARE_FUNCTION(execMyOnComponentEndOverlap); \
+	DECLARE_FUNCTION(execMyOnComponentOverlap);
+
+
+#define BountyDash_Test_Source_BountyDash_Test_Bounty_Dash_Character_h_16_RPC_WRAPPERS_NO_PURE_DECLS \
+ \
+	DECLARE_FUNCTION(execMyOnComponentEndOverlap); \
+	DECLARE_FUNCTION(execMyOnComponentOverlap);
+
+
 #define BountyDash_Test_Source_BountyDash_Test_Bounty_Dash_Character_h_16_INCLASS_NO_PURE_DECLS \
 private: \
 	static void StaticRegisterNativesABounty_Dash_Character(); \
@@ -62,7 +75,8 @@ public: \
 	FORCEINLINE static uint32 __PPO__Target_Arr() { return STRUCT_OFFSET(ABounty_Dash_Character, Target_Arr); } \
 	FORCEINLINE static uint32 __PPO__CharSpeed() { return STRUCT_OFFSET(ABounty_Dash_Character, CharSpeed); } \
 	FORCEINLINE static uint32 __PPO__CameraBoom() { return STRUCT_OFFSET(ABounty_Dash_Character, CameraBoom); } \
-	FORCEINLINE static uint32 __PPO__FollowCamera() { return STRUCT_OFFSET(ABounty_Dash_Character, FollowCamera); }
+	FORCEINLINE static uint32 __PPO__FollowCamera() { return STRUCT_OFFSET(ABounty_Dash_Character, FollowCamera); } \
+	FORCEINLINE static uint32 __PPO__Score() { return STRUCT_OFFSET(ABounty_Dash_Character, Score); }
 
 
 #define BountyDash_Test_Source_BountyDash_Test_Bounty_Dash_Character_h_13_PROLOG

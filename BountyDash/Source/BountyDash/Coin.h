@@ -13,7 +13,7 @@
  *
  */
 UCLASS()
-class BOUNTYDASH_API ACoin : public AObstacle
+class BOUNTYDASH_API ACoin : public ABountyDashObject
 {
 	GENERATED_BODY()
 public:
@@ -24,6 +24,10 @@ private:
 
 
 	virtual void MyOnActorOverlap(AActor* OverlappedActor, AActor* otherActor)override;
+
+protected:
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		class UStaticMeshComponent* Mesh;
 
 
 

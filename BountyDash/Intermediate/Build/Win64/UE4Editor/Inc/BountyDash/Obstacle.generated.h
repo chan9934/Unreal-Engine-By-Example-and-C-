@@ -8,31 +8,20 @@
 #include "UObject/ScriptMacros.h"
 
 PRAGMA_DISABLE_DEPRECATION_WARNINGS
-class AActor;
 #ifdef BOUNTYDASH_Obstacle_generated_h
 #error "Obstacle.generated.h already included, missing '#pragma once' in Obstacle.h"
 #endif
 #define BOUNTYDASH_Obstacle_generated_h
 
 #define BountyDash_Source_BountyDash_Obstacle_h_12_SPARSE_DATA
-#define BountyDash_Source_BountyDash_Obstacle_h_12_RPC_WRAPPERS \
- \
-	DECLARE_FUNCTION(execMyOnActorEndOverlap); \
-	DECLARE_FUNCTION(execMyOnActorOverlap);
-
-
-#define BountyDash_Source_BountyDash_Obstacle_h_12_RPC_WRAPPERS_NO_PURE_DECLS \
- \
-	DECLARE_FUNCTION(execMyOnActorEndOverlap); \
-	DECLARE_FUNCTION(execMyOnActorOverlap);
-
-
+#define BountyDash_Source_BountyDash_Obstacle_h_12_RPC_WRAPPERS
+#define BountyDash_Source_BountyDash_Obstacle_h_12_RPC_WRAPPERS_NO_PURE_DECLS
 #define BountyDash_Source_BountyDash_Obstacle_h_12_INCLASS_NO_PURE_DECLS \
 private: \
 	static void StaticRegisterNativesAObstacle(); \
 	friend struct Z_Construct_UClass_AObstacle_Statics; \
 public: \
-	DECLARE_CLASS(AObstacle, AActor, COMPILED_IN_FLAGS(0 | CLASS_Config), CASTCLASS_None, TEXT("/Script/BountyDash"), NO_API) \
+	DECLARE_CLASS(AObstacle, ABountyDashObject, COMPILED_IN_FLAGS(0 | CLASS_Config), CASTCLASS_None, TEXT("/Script/BountyDash"), NO_API) \
 	DECLARE_SERIALIZER(AObstacle)
 
 
@@ -41,7 +30,7 @@ private: \
 	static void StaticRegisterNativesAObstacle(); \
 	friend struct Z_Construct_UClass_AObstacle_Statics; \
 public: \
-	DECLARE_CLASS(AObstacle, AActor, COMPILED_IN_FLAGS(0 | CLASS_Config), CASTCLASS_None, TEXT("/Script/BountyDash"), NO_API) \
+	DECLARE_CLASS(AObstacle, ABountyDashObject, COMPILED_IN_FLAGS(0 | CLASS_Config), CASTCLASS_None, TEXT("/Script/BountyDash"), NO_API) \
 	DECLARE_SERIALIZER(AObstacle)
 
 

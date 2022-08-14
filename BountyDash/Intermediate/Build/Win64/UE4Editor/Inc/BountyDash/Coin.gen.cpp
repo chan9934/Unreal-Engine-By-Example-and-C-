@@ -15,8 +15,9 @@ void EmptyLinkFunctionForGeneratedCodeCoin() {}
 // Cross Module References
 	BOUNTYDASH_API UClass* Z_Construct_UClass_ACoin_NoRegister();
 	BOUNTYDASH_API UClass* Z_Construct_UClass_ACoin();
-	BOUNTYDASH_API UClass* Z_Construct_UClass_AObstacle();
+	BOUNTYDASH_API UClass* Z_Construct_UClass_ABountyDashObject();
 	UPackage* Z_Construct_UPackage__Script_BountyDash();
+	ENGINE_API UClass* Z_Construct_UClass_UStaticMeshComponent_NoRegister();
 // End Cross Module References
 	void ACoin::StaticRegisterNativesACoin()
 	{
@@ -31,11 +32,16 @@ void EmptyLinkFunctionForGeneratedCodeCoin() {}
 #if WITH_METADATA
 		static const UE4CodeGen_Private::FMetaDataPairParam Class_MetaDataParams[];
 #endif
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_Mesh_MetaData[];
+#endif
+		static const UE4CodeGen_Private::FObjectPropertyParams NewProp_Mesh;
+		static const UE4CodeGen_Private::FPropertyParamsBase* const PropPointers[];
 		static const FCppClassTypeInfoStatic StaticCppClassTypeInfo;
 		static const UE4CodeGen_Private::FClassParams ClassParams;
 	};
 	UObject* (*const Z_Construct_UClass_ACoin_Statics::DependentSingletons[])() = {
-		(UObject* (*)())Z_Construct_UClass_AObstacle,
+		(UObject* (*)())Z_Construct_UClass_ABountyDashObject,
 		(UObject* (*)())Z_Construct_UPackage__Script_BountyDash,
 	};
 #if WITH_METADATA
@@ -45,6 +51,17 @@ void EmptyLinkFunctionForGeneratedCodeCoin() {}
 		{ "ModuleRelativePath", "Coin.h" },
 	};
 #endif
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ACoin_Statics::NewProp_Mesh_MetaData[] = {
+		{ "Category", "Coin" },
+		{ "EditInline", "true" },
+		{ "ModuleRelativePath", "Coin.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_ACoin_Statics::NewProp_Mesh = { "Mesh", nullptr, (EPropertyFlags)0x002008000008000d, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(ACoin, Mesh), Z_Construct_UClass_UStaticMeshComponent_NoRegister, METADATA_PARAMS(Z_Construct_UClass_ACoin_Statics::NewProp_Mesh_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_ACoin_Statics::NewProp_Mesh_MetaData)) };
+	const UE4CodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_ACoin_Statics::PropPointers[] = {
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ACoin_Statics::NewProp_Mesh,
+	};
 	const FCppClassTypeInfoStatic Z_Construct_UClass_ACoin_Statics::StaticCppClassTypeInfo = {
 		TCppClassTypeTraits<ACoin>::IsAbstract,
 	};
@@ -54,11 +71,11 @@ void EmptyLinkFunctionForGeneratedCodeCoin() {}
 		&StaticCppClassTypeInfo,
 		DependentSingletons,
 		nullptr,
-		nullptr,
+		Z_Construct_UClass_ACoin_Statics::PropPointers,
 		nullptr,
 		UE_ARRAY_COUNT(DependentSingletons),
 		0,
-		0,
+		UE_ARRAY_COUNT(Z_Construct_UClass_ACoin_Statics::PropPointers),
 		0,
 		0x009000A4u,
 		METADATA_PARAMS(Z_Construct_UClass_ACoin_Statics::Class_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UClass_ACoin_Statics::Class_MetaDataParams))
@@ -72,7 +89,7 @@ void EmptyLinkFunctionForGeneratedCodeCoin() {}
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(ACoin, 733879547);
+	IMPLEMENT_CLASS(ACoin, 1717995079);
 	template<> BOUNTYDASH_API UClass* StaticClass<ACoin>()
 	{
 		return ACoin::StaticClass();

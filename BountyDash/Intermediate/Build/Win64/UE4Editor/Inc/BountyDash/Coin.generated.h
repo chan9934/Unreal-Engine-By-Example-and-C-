@@ -21,7 +21,7 @@ private: \
 	static void StaticRegisterNativesACoin(); \
 	friend struct Z_Construct_UClass_ACoin_Statics; \
 public: \
-	DECLARE_CLASS(ACoin, AObstacle, COMPILED_IN_FLAGS(0 | CLASS_Config), CASTCLASS_None, TEXT("/Script/BountyDash"), NO_API) \
+	DECLARE_CLASS(ACoin, ABountyDashObject, COMPILED_IN_FLAGS(0 | CLASS_Config), CASTCLASS_None, TEXT("/Script/BountyDash"), NO_API) \
 	DECLARE_SERIALIZER(ACoin)
 
 
@@ -30,7 +30,7 @@ private: \
 	static void StaticRegisterNativesACoin(); \
 	friend struct Z_Construct_UClass_ACoin_Statics; \
 public: \
-	DECLARE_CLASS(ACoin, AObstacle, COMPILED_IN_FLAGS(0 | CLASS_Config), CASTCLASS_None, TEXT("/Script/BountyDash"), NO_API) \
+	DECLARE_CLASS(ACoin, ABountyDashObject, COMPILED_IN_FLAGS(0 | CLASS_Config), CASTCLASS_None, TEXT("/Script/BountyDash"), NO_API) \
 	DECLARE_SERIALIZER(ACoin)
 
 
@@ -58,7 +58,10 @@ public: \
 	DEFINE_DEFAULT_CONSTRUCTOR_CALL(ACoin)
 
 
-#define BountyDash_Source_BountyDash_Coin_h_18_PRIVATE_PROPERTY_OFFSET
+#define BountyDash_Source_BountyDash_Coin_h_18_PRIVATE_PROPERTY_OFFSET \
+	FORCEINLINE static uint32 __PPO__Mesh() { return STRUCT_OFFSET(ACoin, Mesh); }
+
+
 #define BountyDash_Source_BountyDash_Coin_h_15_PROLOG
 #define BountyDash_Source_BountyDash_Coin_h_18_GENERATED_BODY_LEGACY \
 PRAGMA_DISABLE_DEPRECATION_WARNINGS \

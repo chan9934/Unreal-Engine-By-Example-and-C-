@@ -8,6 +8,9 @@
 #include "Camera/CameraComponent.h"
 #include "EngineUtils.h"
 #include "Engine/TargetPoint.h"
+#include "Obstacle.h"
+#include "BountyDash_TestGameModeBase.h"
+#include "BountyDash_Test.h"
 
 
 // Sets default values
@@ -55,7 +58,16 @@ ABounty_Dash_Character::ABounty_Dash_Character()
 
 	AutoPossessPlayer = EAutoReceiveInput::Player0;
 
+	GetCapsuleComponent()->OnComponentBeginOverlap.AddDynamic(this, &ABounty_Dash_Character::MyOnComponentOverlap);
+	GetCapsuleComponent()->OnComponentEndOverlap.AddDynamic(this, &ABounty_Dash_Character::MyOnComponentEndOverlap);
+
 	/*GetCapsuleComponent()->OnComponentBeginOverlap.AddDynamic(this, ABounty_Dash_Character::MyOnComponentOverlap);*/
+}
+
+void ABounty_Dash_Character::ScoreUp()
+{
+	Score++;
+	GetCustomGameMode<ABountyDash_TestGameModeBase>(GetWorld())->CharScoreUp(Score);
 }
 
 // Called when the game starts or when spawned
@@ -75,6 +87,27 @@ void ABounty_Dash_Character::BeginPlay()
 	
 }
 
+void ABounty_Dash_Character::MyOnComponentOverlap(UPrimitiveComponent* OverlappedComp, AActor* OtherActor, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult& SweepResult)
+{
+	if (OtherActor->GetClass()->IsChildOf(AObstacle::StaticClass()))
+	{
+		FVector VecBetween = OtherActor->GetActorLocation() - GetActorLocation();
+		float AngleBetween = FMath::Acos(FVector::DotProduct(VecBetween.GetSafeNormal(), GetActorForwardVector().GetSafeNormal()));
+
+		AngleBetween *= (180 / PI);
+
+		if (AngleBetween < 60.0f)
+		{
+			bBeingPushed = true;
+		}
+	}
+}
+
+void ABounty_Dash_Character::MyOnComponentEndOverlap(UPrimitiveComponent* OverlappedComp, AActor* OtherActor, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex)
+{
+	bBeingPushed = false;
+}
+
 // Called every frame
 void ABounty_Dash_Character::Tick(float DeltaTime)
 {
@@ -88,8 +121,11 @@ void ABounty_Dash_Character::Tick(float DeltaTime)
 		{
 			SetActorLocation(FMath::Lerp(GetActorLocation(), Target_Loc, DeltaTime * CharSpeed));
 		}
-	
-		
+	}
+	if (bBeingPushed)
+	{
+		float moveSpeed = GetCustomGameMode<ABountyDash_TestGameModeBase>(GetWorld())->GetInvGameSpeed();
+		AddActorLocalOffset(FVector(moveSpeed, 0.0f, 0.0f));
 	}
 
 }

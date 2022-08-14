@@ -11,6 +11,13 @@
 
 ACoin::ACoin()
 {
+	Mesh = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("Mesh"));
+
+	check(Mesh);
+
+	Mesh->AttachTo(RootComponent);
+	
+	Mesh->SetCollisionProfileName("OverlapAllDynamic");
 	
 }
 

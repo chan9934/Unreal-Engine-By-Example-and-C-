@@ -1,6 +1,7 @@
 {
 	"SourceFiles": [
 		"D:\\HelloUnreal\\BountyDash\\Source\\BountyDash\\BountyDash.Build.cs",
+		"D:\\HelloUnreal\\BountyDash\\Plugins\\PowerUpPlugin\\Source\\PowerUpPlugin\\PowerUpPlugin.Build.cs",
 		"D:\\HelloUnreal\\BountyDash\\Source\\BountyDash.Target.cs",
 		"D:\\HelloUnreal\\BountyDash\\Source\\BountyDashEditor.Target.cs"
 	],
