@@ -68,7 +68,7 @@ void ABounty_Dash_Character::BeginPlay()
 	}
 	auto SortPred = [](const AActor& A, const AActor& B)->bool
 	{
-		return A.GetActorLocation().Y > B.GetActorLocation().Y;
+		return A.GetActorLocation().Y < B.GetActorLocation().Y;
 	};
 	Target_Arr.Sort(SortPred);
 	CurrentLocation = Target_Arr.Num() / 2 + Target_Arr.Num() % 2 - 1;
@@ -101,9 +101,9 @@ void ABounty_Dash_Character::SetupPlayerInputComponent(UInputComponent* PlayerIn
 
 	check(InputComponent);
 	InputComponent->BindAction("Jump", IE_Pressed, this, &ACharacter::Jump);
-	InputComponent->BindAction("Jump", IE_Pressed, this, &ACharacter::StopJumping);
+	InputComponent->BindAction("Jump", IE_Released, this, &ACharacter::StopJumping);
 	InputComponent->BindAction("MoveRight", IE_Pressed, this, &ABounty_Dash_Character::MoveRight);
-	InputComponent->BindAction("MoveLeft", IE_Released, this, &ABounty_Dash_Character::MoveLeft);
+	InputComponent->BindAction("MoveLeft", IE_Pressed, this, &ABounty_Dash_Character::MoveLeft);
 
 
 }

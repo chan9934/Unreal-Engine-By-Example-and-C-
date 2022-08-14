@@ -14,8 +14,20 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 #define BOUNTYDASH_TEST_BountyDash_TestGameModeBase_generated_h
 
 #define BountyDash_Test_Source_BountyDash_Test_BountyDash_TestGameModeBase_h_15_SPARSE_DATA
-#define BountyDash_Test_Source_BountyDash_Test_BountyDash_TestGameModeBase_h_15_RPC_WRAPPERS
-#define BountyDash_Test_Source_BountyDash_Test_BountyDash_TestGameModeBase_h_15_RPC_WRAPPERS_NO_PURE_DECLS
+#define BountyDash_Test_Source_BountyDash_Test_BountyDash_TestGameModeBase_h_15_RPC_WRAPPERS \
+ \
+	DECLARE_FUNCTION(execGetGameLevel); \
+	DECLARE_FUNCTION(execGetGameSpeed); \
+	DECLARE_FUNCTION(execGetInvGameSpeed);
+
+
+#define BountyDash_Test_Source_BountyDash_Test_BountyDash_TestGameModeBase_h_15_RPC_WRAPPERS_NO_PURE_DECLS \
+ \
+	DECLARE_FUNCTION(execGetGameLevel); \
+	DECLARE_FUNCTION(execGetGameSpeed); \
+	DECLARE_FUNCTION(execGetInvGameSpeed);
+
+
 #define BountyDash_Test_Source_BountyDash_Test_BountyDash_TestGameModeBase_h_15_INCLASS_NO_PURE_DECLS \
 private: \
 	static void StaticRegisterNativesABountyDash_TestGameModeBase(); \
@@ -62,7 +74,7 @@ public: \
 	FORCEINLINE static uint32 __PPO__gameSpeed() { return STRUCT_OFFSET(ABountyDash_TestGameModeBase, gameSpeed); } \
 	FORCEINLINE static uint32 __PPO__gameLevel() { return STRUCT_OFFSET(ABountyDash_TestGameModeBase, gameLevel); } \
 	FORCEINLINE static uint32 __PPO__numCoinsForSpeedIncrease() { return STRUCT_OFFSET(ABountyDash_TestGameModeBase, numCoinsForSpeedIncrease); } \
-	FORCEINLINE static uint32 __PPO__ameSpeedIncrease() { return STRUCT_OFFSET(ABountyDash_TestGameModeBase, ameSpeedIncrease); }
+	FORCEINLINE static uint32 __PPO__gameSpeedIncrease() { return STRUCT_OFFSET(ABountyDash_TestGameModeBase, gameSpeedIncrease); }
 
 
 #define BountyDash_Test_Source_BountyDash_Test_BountyDash_TestGameModeBase_h_12_PROLOG

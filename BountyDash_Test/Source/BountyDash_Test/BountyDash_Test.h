@@ -4,3 +4,8 @@
 
 #include "CoreMinimal.h"
 
+template<typename T>
+T* GetCustomGameMode(UWorld* WorldConText)
+{
+	return Cast<T>(WorldConText->GetAuthGameMode());
+}

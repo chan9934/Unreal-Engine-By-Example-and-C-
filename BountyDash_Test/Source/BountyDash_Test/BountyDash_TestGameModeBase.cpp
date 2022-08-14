@@ -7,10 +7,20 @@
 ABountyDash_TestGameModeBase::ABountyDash_TestGameModeBase()
 {
 	DefaultPawnClass = ABounty_Dash_Character::StaticClass();
+	gameSpeed = 10.0;
+	gameLevel = 1;
+	numCoinsForSpeedIncrease = 5;
+	gameSpeedIncrease =5.2 ;
+
 }
 
 void ABountyDash_TestGameModeBase::CharScoreUp(unsigned int charScore)
 {
+	if (charScore != 0 && charScore % numCoinsForSpeedIncrease == 0)
+	{
+		gameSpeed += gameSpeedIncrease;
+		gameLevel++;
+	}
 }
 
 float ABountyDash_TestGameModeBase::GetInvGameSpeed()
@@ -18,7 +28,7 @@ float ABountyDash_TestGameModeBase::GetInvGameSpeed()
 	return -gameSpeed;
 }
 
-flaot ABountyDash_TestGameModeBase::GetGameSpeed()
+float ABountyDash_TestGameModeBase::GetGameSpeed()
 {
 	return gameSpeed;
 }

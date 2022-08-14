@@ -28,7 +28,7 @@ public:
 		float GetInvGameSpeed();
 
 	UFUNCTION()
-		flaot GetGameSpeed();
+		float GetGameSpeed();
 
 	UFUNCTION()
 		int32 GetGameLevel();
@@ -38,6 +38,6 @@ protected:
 		int32 numCoinsForSpeedIncrease;
 
 	UPROPERTY(EditAnywhere, BlueprintReadwrite)
-		float ameSpeedIncrease;
+		float gameSpeedIncrease;
 
 };
