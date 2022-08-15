@@ -233,6 +233,9 @@
 /I Runtime\ClothingSystemRuntimeInterface\Public
 /I D:\HelloUnreal\BountyDash\Intermediate\Build\Win64\UE4Editor\Inc\BountyDash
 /I D:\HelloUnreal\BountyDash\Source
+/I D:\HelloUnreal\BountyDash\Plugins\PowerUpPlugin\Intermediate\Build\Win64\UE4Editor\Inc\PowerUpPlugin
+/I D:\HelloUnreal\BountyDash\Plugins\PowerUpPlugin\Source
+/I D:\HelloUnreal\BountyDash\Plugins\PowerUpPlugin\Source\PowerUpPlugin\Public
 /I ThirdParty\PhysX3\PxShared\include
 /I ThirdParty\PhysX3\PxShared\include\cudamanager
 /I ThirdParty\PhysX3\PxShared\include\filebuf

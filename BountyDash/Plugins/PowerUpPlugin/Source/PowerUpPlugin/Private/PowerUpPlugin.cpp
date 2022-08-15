@@ -1,7 +1,7 @@
 // Copyright Epic Games, Inc. All Rights Reserved.
 
 #include "PowerUpPlugin.h"
-
+#include "CoreUObject.h" 
 #define LOCTEXT_NAMESPACE "FPowerUpPluginModule"
 
 void FPowerUpPluginModule::StartupModule()

@@ -21,6 +21,7 @@ void EmptyLinkFunctionForGeneratedCodeCoinSpawner() {}
 	BOUNTYDASH_API UClass* Z_Construct_UClass_ACoin_NoRegister();
 	ENGINE_API UClass* Z_Construct_UClass_ATargetPoint_NoRegister();
 	ENGINE_API UClass* Z_Construct_UClass_USceneComponent_NoRegister();
+	BOUNTYDASH_API UClass* Z_Construct_UClass_ABountyDashPowerUp_NoRegister();
 // End Cross Module References
 	void ACoinSpawner::StaticRegisterNativesACoinSpawner()
 	{
@@ -68,6 +69,14 @@ void EmptyLinkFunctionForGeneratedCodeCoinSpawner() {}
 		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_MovementTimeInterval_MetaData[];
 #endif
 		static const UE4CodeGen_Private::FFloatPropertyParams NewProp_MovementTimeInterval;
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_PowerUpObject_MetaData[];
+#endif
+		static const UE4CodeGen_Private::FClassPropertyParams NewProp_PowerUpObject;
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_PowerUpChance_MetaData[];
+#endif
+		static const UE4CodeGen_Private::FIntPropertyParams NewProp_PowerUpChance;
 		static const UE4CodeGen_Private::FPropertyParamsBase* const PropPointers[];
 		static const FCppClassTypeInfoStatic StaticCppClassTypeInfo;
 		static const UE4CodeGen_Private::FClassParams ClassParams;
@@ -138,6 +147,24 @@ void EmptyLinkFunctionForGeneratedCodeCoinSpawner() {}
 	};
 #endif
 	const UE4CodeGen_Private::FFloatPropertyParams Z_Construct_UClass_ACoinSpawner_Statics::NewProp_MovementTimeInterval = { "MovementTimeInterval", nullptr, (EPropertyFlags)0x0010000000000001, UE4CodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(ACoinSpawner, MovementTimeInterval), METADATA_PARAMS(Z_Construct_UClass_ACoinSpawner_Statics::NewProp_MovementTimeInterval_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_ACoinSpawner_Statics::NewProp_MovementTimeInterval_MetaData)) };
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ACoinSpawner_Statics::NewProp_PowerUpObject_MetaData[] = {
+		{ "Category", "CoinSpawner" },
+		{ "ModuleRelativePath", "CoinSpawner.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FClassPropertyParams Z_Construct_UClass_ACoinSpawner_Statics::NewProp_PowerUpObject = { "PowerUpObject", nullptr, (EPropertyFlags)0x0014000000000001, UE4CodeGen_Private::EPropertyGenFlags::Class, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(ACoinSpawner, PowerUpObject), Z_Construct_UClass_ABountyDashPowerUp_NoRegister, Z_Construct_UClass_UClass, METADATA_PARAMS(Z_Construct_UClass_ACoinSpawner_Statics::NewProp_PowerUpObject_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_ACoinSpawner_Statics::NewProp_PowerUpObject_MetaData)) };
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ACoinSpawner_Statics::NewProp_PowerUpChance_MetaData[] = {
+		{ "Category", "CoinSpawner" },
+		{ "ClampMax", "100.0" },
+		{ "ClampMin", "0.0" },
+		{ "ModuleRelativePath", "CoinSpawner.h" },
+		{ "UIMax", "100.0" },
+		{ "UIMin", "0.0" },
+	};
+#endif
+	const UE4CodeGen_Private::FIntPropertyParams Z_Construct_UClass_ACoinSpawner_Statics::NewProp_PowerUpChance = { "PowerUpChance", nullptr, (EPropertyFlags)0x0010000000000001, UE4CodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(ACoinSpawner, PowerUpChance), METADATA_PARAMS(Z_Construct_UClass_ACoinSpawner_Statics::NewProp_PowerUpChance_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_ACoinSpawner_Statics::NewProp_PowerUpChance_MetaData)) };
 	const UE4CodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_ACoinSpawner_Statics::PropPointers[] = {
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ACoinSpawner_Statics::NewProp_CoinObject,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ACoinSpawner_Statics::NewProp_SpawnTransforms_Inner,
@@ -148,6 +175,8 @@ void EmptyLinkFunctionForGeneratedCodeCoinSpawner() {}
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ACoinSpawner_Statics::NewProp_CoinSetTimeInterval,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ACoinSpawner_Statics::NewProp_CoinTimeInterval,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ACoinSpawner_Statics::NewProp_MovementTimeInterval,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ACoinSpawner_Statics::NewProp_PowerUpObject,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ACoinSpawner_Statics::NewProp_PowerUpChance,
 	};
 	const FCppClassTypeInfoStatic Z_Construct_UClass_ACoinSpawner_Statics::StaticCppClassTypeInfo = {
 		TCppClassTypeTraits<ACoinSpawner>::IsAbstract,
@@ -176,7 +205,7 @@ void EmptyLinkFunctionForGeneratedCodeCoinSpawner() {}
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(ACoinSpawner, 242345841);
+	IMPLEMENT_CLASS(ACoinSpawner, 2973892962);
 	template<> BOUNTYDASH_API UClass* StaticClass<ACoinSpawner>()
 	{
 		return ACoinSpawner::StaticClass();

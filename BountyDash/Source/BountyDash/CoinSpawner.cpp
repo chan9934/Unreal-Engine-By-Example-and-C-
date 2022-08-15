@@ -10,6 +10,7 @@
 #include "Components/SphereComponent.h"
 #include "EngineUtils.h"
 #include "TimerManager.h"
+#include "BountyDashPowerUp.h"
 
 // Sets default values
 ACoinSpawner::ACoinSpawner()
@@ -54,7 +55,7 @@ void ACoinSpawner::BeginPlay()
 
 void ACoinSpawner::SpawnCoin()
 {
-	FActorSpawnParameters spawnParams;
+	/*FActorSpawnParameters spawnParams;
 
 	FTransform coinTransform = SpawnTransforms[TargetLoc]->GetTransform();
 
@@ -79,6 +80,36 @@ void ACoinSpawner::SpawnCoin()
 		FTimerManager& worldTimeManager = GetWorld()->GetTimerManager();
 		worldTimeManager.SetTimer(CoinSetTimerHandle, this, &ACoinSpawner::SpawnCoinSet, CoinSetTimeInterval, false);
 
+	}*/
+
+	if (FMath::Rand() & 100 < PowerUpChance)
+	{
+		SpawnPowerUp();
+		--NumCoinsToSpawn;
+	}
+	else
+	{
+		FActorSpawnParameters spawnParams;
+		FTransform coinTransform = SpawnTransforms[TargetLoc]->GetTransform();
+		coinTransform.SetLocation(FVector(SpawnPoint, coinTransform.GetLocation().Y, coinTransform.GetLocation().Z));
+		ACoin* spawnedCoin = GetWorld()->SpawnActor<ACoin>(CoinObject, coinTransform, spawnParams);
+		if (spawnedCoin)
+		{
+			spawnedCoin->SetKillPoint(KillPoint);
+			USphereComponent* coinSphere = Cast<USphereComponent>(spawnedCoin->GetComponentByClass(USphereComponent::StaticClass()));
+			if (coinSphere)
+			{
+				float offset = coinSphere->GetUnscaledSphereRadius();
+				spawnedCoin->AddActorLocalOffset(FVector(0.0f, 0.0f, offset));
+			}
+			--NumCoinsToSpawn;
+		}
+	}
+	if (NumCoinsToSpawn <= 0)
+	{
+		FTimerManager& worldTimerManager = GetWorld()->GetTimerManager();
+		worldTimerManager.SetTimer(CoinSetTimerHandle, this, &ACoinSpawner::SpawnCoinSet, CoinSetTimeInterval, false);
+		worldTimerManager.ClearTimer(CoinTimerHandle);
 	}
 }
 
@@ -97,4 +128,25 @@ void ACoinSpawner::MoveSpawner()
 {
 	TargetLoc = FMath::Rand() % SpawnTransforms.Num();
 }
+
+	void ACoinSpawner::SpawnPowerUp()
+	{
+		FActorSpawnParameters SpawnInfo;
+
+		FTransform myTrans = SpawnTransforms[TargetLoc]->GetTransform();
+		myTrans.SetLocation(FVector(SpawnPoint, myTrans.GetLocation().Y, myTrans.GetLocation().Z));
+
+		ABountyDashPowerUp* newObs = GetWorld()->SpawnActor<ABountyDashPowerUp>(PowerUpObject, myTrans, SpawnInfo);
+
+		if (newObs)
+		{
+			newObs->SetKillPoint(KillPoint);
+			USphereComponent* powerUpSphere = Cast<USphereComponent>(newObs->GetComponentByClass(USphereComponent::StaticClass()));
+			if (powerUpSphere)
+			{
+				float Offset = powerUpSphere->GetUnscaledSphereRadius();
+				newObs->AddActorLocalOffset(FVector(0.0f, 0.0f, Offset));
+			}
+		}
+	}
 
