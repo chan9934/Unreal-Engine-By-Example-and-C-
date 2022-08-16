@@ -17,7 +17,7 @@ void EmptyLinkFunctionForGeneratedCodeObstacle() {}
 	BOUNTYDASH_API UClass* Z_Construct_UClass_AObstacle();
 	BOUNTYDASH_API UClass* Z_Construct_UClass_ABountyDashObject();
 	UPackage* Z_Construct_UPackage__Script_BountyDash();
-	ENGINE_API UClass* Z_Construct_UClass_UStaticMeshComponent_NoRegister();
+	APEXDESTRUCTION_API UClass* Z_Construct_UClass_UDestructibleComponent_NoRegister();
 // End Cross Module References
 	void AObstacle::StaticRegisterNativesAObstacle()
 	{
@@ -58,7 +58,7 @@ void EmptyLinkFunctionForGeneratedCodeObstacle() {}
 		{ "ModuleRelativePath", "Obstacle.h" },
 	};
 #endif
-	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AObstacle_Statics::NewProp_Mesh = { "Mesh", nullptr, (EPropertyFlags)0x001000000008000d, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(AObstacle, Mesh), Z_Construct_UClass_UStaticMeshComponent_NoRegister, METADATA_PARAMS(Z_Construct_UClass_AObstacle_Statics::NewProp_Mesh_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_AObstacle_Statics::NewProp_Mesh_MetaData)) };
+	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AObstacle_Statics::NewProp_Mesh = { "Mesh", nullptr, (EPropertyFlags)0x0020080000080009, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(AObstacle, Mesh), Z_Construct_UClass_UDestructibleComponent_NoRegister, METADATA_PARAMS(Z_Construct_UClass_AObstacle_Statics::NewProp_Mesh_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_AObstacle_Statics::NewProp_Mesh_MetaData)) };
 	const UE4CodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_AObstacle_Statics::PropPointers[] = {
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AObstacle_Statics::NewProp_Mesh,
 	};
@@ -89,7 +89,7 @@ void EmptyLinkFunctionForGeneratedCodeObstacle() {}
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(AObstacle, 384167124);
+	IMPLEMENT_CLASS(AObstacle, 3728650116);
 	template<> BOUNTYDASH_API UClass* StaticClass<AObstacle>()
 	{
 		return AObstacle::StaticClass();

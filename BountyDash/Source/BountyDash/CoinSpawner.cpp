@@ -15,7 +15,7 @@
 // Sets default values
 ACoinSpawner::ACoinSpawner()
 {
- 	// Set this actor to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
+	// Set this actor to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = true;
 
 	Root = CreateDefaultSubobject<USceneComponent>(TEXT("Root"));
@@ -44,13 +44,13 @@ void ACoinSpawner::BeginPlay()
 		KillPoint = FloorIter->GetKillPoint();
 		SpawnPoint = FloorIter->GetSpawnPoint();
 	}
-	
+
 	FTimerManager& worldTimeManager = GetWorld()->GetTimerManager();
 
 	worldTimeManager.SetTimer(CoinSetTimerHandle, this, &ACoinSpawner::SpawnCoinSet, CoinSetTimeInterval, false);
 
 	worldTimeManager.SetTimer(SpawnMoveTimerHandle, this, &ACoinSpawner::MoveSpawner, MovementTimeInterval, true);
-	
+
 }
 
 void ACoinSpawner::SpawnCoin()
@@ -82,7 +82,7 @@ void ACoinSpawner::SpawnCoin()
 
 	}*/
 
-	if (FMath::Rand() & 100 < PowerUpChance)
+	if (FMath::Rand() % 100 < PowerUpChance)
 	{
 		SpawnPowerUp();
 		--NumCoinsToSpawn;
@@ -129,24 +129,24 @@ void ACoinSpawner::MoveSpawner()
 	TargetLoc = FMath::Rand() % SpawnTransforms.Num();
 }
 
-	void ACoinSpawner::SpawnPowerUp()
+void ACoinSpawner::SpawnPowerUp()
+{
+	FActorSpawnParameters SpawnInfo;
+
+	FTransform myTrans = SpawnTransforms[TargetLoc]->GetTransform();
+	myTrans.SetLocation(FVector(SpawnPoint, myTrans.GetLocation().Y, myTrans.GetLocation().Z));
+
+	ABountyDashPowerUp* newObs = GetWorld()->SpawnActor<ABountyDashPowerUp>(PowerUpObject, myTrans, SpawnInfo);
+
+	if (newObs)
 	{
-		FActorSpawnParameters SpawnInfo;
-
-		FTransform myTrans = SpawnTransforms[TargetLoc]->GetTransform();
-		myTrans.SetLocation(FVector(SpawnPoint, myTrans.GetLocation().Y, myTrans.GetLocation().Z));
-
-		ABountyDashPowerUp* newObs = GetWorld()->SpawnActor<ABountyDashPowerUp>(PowerUpObject, myTrans, SpawnInfo);
-
-		if (newObs)
+		newObs->SetKillPoint(KillPoint);
+		USphereComponent* powerUpSphere = Cast<USphereComponent>(newObs->GetComponentByClass(USphereComponent::StaticClass()));
+		if (powerUpSphere)
 		{
-			newObs->SetKillPoint(KillPoint);
-			USphereComponent* powerUpSphere = Cast<USphereComponent>(newObs->GetComponentByClass(USphereComponent::StaticClass()));
-			if (powerUpSphere)
-			{
-				float Offset = powerUpSphere->GetUnscaledSphereRadius();
-				newObs->AddActorLocalOffset(FVector(0.0f, 0.0f, Offset));
-			}
+			float Offset = powerUpSphere->GetUnscaledSphereRadius();
+			newObs->AddActorLocalOffset(FVector(0.0f, 0.0f, Offset));
 		}
 	}
+}
 

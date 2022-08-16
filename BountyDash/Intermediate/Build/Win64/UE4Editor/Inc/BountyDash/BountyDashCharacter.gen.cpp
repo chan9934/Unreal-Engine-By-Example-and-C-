@@ -25,6 +25,20 @@ void EmptyLinkFunctionForGeneratedCodeBountyDashCharacter() {}
 	ENGINE_API UClass* Z_Construct_UClass_USpringArmComponent_NoRegister();
 	ENGINE_API UClass* Z_Construct_UClass_UCameraComponent_NoRegister();
 // End Cross Module References
+	DEFINE_FUNCTION(ABountyDashCharacter::execStopMagnet)
+	{
+		P_FINISH;
+		P_NATIVE_BEGIN;
+		P_THIS->StopMagnet();
+		P_NATIVE_END;
+	}
+	DEFINE_FUNCTION(ABountyDashCharacter::execStopSmash)
+	{
+		P_FINISH;
+		P_NATIVE_BEGIN;
+		P_THIS->StopSmash();
+		P_NATIVE_END;
+	}
 	DEFINE_FUNCTION(ABountyDashCharacter::execMyOnComponentEndOverlap)
 	{
 		P_GET_OBJECT(UPrimitiveComponent,Z_Param_OverlappedComp);
@@ -55,6 +69,8 @@ void EmptyLinkFunctionForGeneratedCodeBountyDashCharacter() {}
 		static const FNameNativePtrPair Funcs[] = {
 			{ "MyOnComponentEndOverlap", &ABountyDashCharacter::execMyOnComponentEndOverlap },
 			{ "MyOnComponentOverlap", &ABountyDashCharacter::execMyOnComponentOverlap },
+			{ "StopMagnet", &ABountyDashCharacter::execStopMagnet },
+			{ "StopSmash", &ABountyDashCharacter::execStopSmash },
 		};
 		FNativeFunctionRegistrar::RegisterFunctions(Class, Funcs, UE_ARRAY_COUNT(Funcs));
 	}
@@ -199,6 +215,50 @@ void EmptyLinkFunctionForGeneratedCodeBountyDashCharacter() {}
 		}
 		return ReturnFunction;
 	}
+	struct Z_Construct_UFunction_ABountyDashCharacter_StopMagnet_Statics
+	{
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UE4CodeGen_Private::FFunctionParams FuncParams;
+	};
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_ABountyDashCharacter_StopMagnet_Statics::Function_MetaDataParams[] = {
+		{ "ModuleRelativePath", "BountyDashCharacter.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FFunctionParams Z_Construct_UFunction_ABountyDashCharacter_StopMagnet_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_ABountyDashCharacter, nullptr, "StopMagnet", nullptr, nullptr, 0, nullptr, 0, RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x00080401, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_ABountyDashCharacter_StopMagnet_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_ABountyDashCharacter_StopMagnet_Statics::Function_MetaDataParams)) };
+	UFunction* Z_Construct_UFunction_ABountyDashCharacter_StopMagnet()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UE4CodeGen_Private::ConstructUFunction(ReturnFunction, Z_Construct_UFunction_ABountyDashCharacter_StopMagnet_Statics::FuncParams);
+		}
+		return ReturnFunction;
+	}
+	struct Z_Construct_UFunction_ABountyDashCharacter_StopSmash_Statics
+	{
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UE4CodeGen_Private::FFunctionParams FuncParams;
+	};
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_ABountyDashCharacter_StopSmash_Statics::Function_MetaDataParams[] = {
+		{ "ModuleRelativePath", "BountyDashCharacter.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FFunctionParams Z_Construct_UFunction_ABountyDashCharacter_StopSmash_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_ABountyDashCharacter, nullptr, "StopSmash", nullptr, nullptr, 0, nullptr, 0, RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x00080401, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_ABountyDashCharacter_StopSmash_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_ABountyDashCharacter_StopSmash_Statics::Function_MetaDataParams)) };
+	UFunction* Z_Construct_UFunction_ABountyDashCharacter_StopSmash()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UE4CodeGen_Private::ConstructUFunction(ReturnFunction, Z_Construct_UFunction_ABountyDashCharacter_StopSmash_Statics::FuncParams);
+		}
+		return ReturnFunction;
+	}
 	UClass* Z_Construct_UClass_ABountyDashCharacter_NoRegister()
 	{
 		return ABountyDashCharacter::StaticClass();
@@ -239,6 +299,18 @@ void EmptyLinkFunctionForGeneratedCodeBountyDashCharacter() {}
 		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_Score_MetaData[];
 #endif
 		static const UE4CodeGen_Private::FIntPropertyParams NewProp_Score;
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_SmashTime_MetaData[];
+#endif
+		static const UE4CodeGen_Private::FFloatPropertyParams NewProp_SmashTime;
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_MagnetTime_MetaData[];
+#endif
+		static const UE4CodeGen_Private::FFloatPropertyParams NewProp_MagnetTime;
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_MagnetReach_MetaData[];
+#endif
+		static const UE4CodeGen_Private::FFloatPropertyParams NewProp_MagnetReach;
 		static const UE4CodeGen_Private::FPropertyParamsBase* const PropPointers[];
 		static const FCppClassTypeInfoStatic StaticCppClassTypeInfo;
 		static const UE4CodeGen_Private::FClassParams ClassParams;
@@ -250,6 +322,8 @@ void EmptyLinkFunctionForGeneratedCodeBountyDashCharacter() {}
 	const FClassFunctionLinkInfo Z_Construct_UClass_ABountyDashCharacter_Statics::FuncInfo[] = {
 		{ &Z_Construct_UFunction_ABountyDashCharacter_MyOnComponentEndOverlap, "MyOnComponentEndOverlap" }, // 3652672517
 		{ &Z_Construct_UFunction_ABountyDashCharacter_MyOnComponentOverlap, "MyOnComponentOverlap" }, // 1413367022
+		{ &Z_Construct_UFunction_ABountyDashCharacter_StopMagnet, "StopMagnet" }, // 1536711092
+		{ &Z_Construct_UFunction_ABountyDashCharacter_StopSmash, "StopSmash" }, // 2421333531
 	};
 #if WITH_METADATA
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ABountyDashCharacter_Statics::Class_MetaDataParams[] = {
@@ -312,6 +386,27 @@ void EmptyLinkFunctionForGeneratedCodeBountyDashCharacter() {}
 	};
 #endif
 	const UE4CodeGen_Private::FIntPropertyParams Z_Construct_UClass_ABountyDashCharacter_Statics::NewProp_Score = { "Score", nullptr, (EPropertyFlags)0x0020080000000014, UE4CodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(ABountyDashCharacter, Score), METADATA_PARAMS(Z_Construct_UClass_ABountyDashCharacter_Statics::NewProp_Score_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_ABountyDashCharacter_Statics::NewProp_Score_MetaData)) };
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ABountyDashCharacter_Statics::NewProp_SmashTime_MetaData[] = {
+		{ "Category", "PowerUps" },
+		{ "ModuleRelativePath", "BountyDashCharacter.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FFloatPropertyParams Z_Construct_UClass_ABountyDashCharacter_Statics::NewProp_SmashTime = { "SmashTime", nullptr, (EPropertyFlags)0x0020080000000001, UE4CodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(ABountyDashCharacter, SmashTime), METADATA_PARAMS(Z_Construct_UClass_ABountyDashCharacter_Statics::NewProp_SmashTime_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_ABountyDashCharacter_Statics::NewProp_SmashTime_MetaData)) };
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ABountyDashCharacter_Statics::NewProp_MagnetTime_MetaData[] = {
+		{ "Category", "PowerUps" },
+		{ "ModuleRelativePath", "BountyDashCharacter.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FFloatPropertyParams Z_Construct_UClass_ABountyDashCharacter_Statics::NewProp_MagnetTime = { "MagnetTime", nullptr, (EPropertyFlags)0x0020080000000001, UE4CodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(ABountyDashCharacter, MagnetTime), METADATA_PARAMS(Z_Construct_UClass_ABountyDashCharacter_Statics::NewProp_MagnetTime_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_ABountyDashCharacter_Statics::NewProp_MagnetTime_MetaData)) };
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ABountyDashCharacter_Statics::NewProp_MagnetReach_MetaData[] = {
+		{ "Category", "PowerUps" },
+		{ "ModuleRelativePath", "BountyDashCharacter.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FFloatPropertyParams Z_Construct_UClass_ABountyDashCharacter_Statics::NewProp_MagnetReach = { "MagnetReach", nullptr, (EPropertyFlags)0x0020080000000001, UE4CodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(ABountyDashCharacter, MagnetReach), METADATA_PARAMS(Z_Construct_UClass_ABountyDashCharacter_Statics::NewProp_MagnetReach_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_ABountyDashCharacter_Statics::NewProp_MagnetReach_MetaData)) };
 	const UE4CodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_ABountyDashCharacter_Statics::PropPointers[] = {
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ABountyDashCharacter_Statics::NewProp_TargetArray_Inner,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ABountyDashCharacter_Statics::NewProp_TargetArray,
@@ -321,6 +416,9 @@ void EmptyLinkFunctionForGeneratedCodeBountyDashCharacter() {}
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ABountyDashCharacter_Statics::NewProp_CameraBoom,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ABountyDashCharacter_Statics::NewProp_FollowCamera,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ABountyDashCharacter_Statics::NewProp_Score,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ABountyDashCharacter_Statics::NewProp_SmashTime,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ABountyDashCharacter_Statics::NewProp_MagnetTime,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ABountyDashCharacter_Statics::NewProp_MagnetReach,
 	};
 	const FCppClassTypeInfoStatic Z_Construct_UClass_ABountyDashCharacter_Statics::StaticCppClassTypeInfo = {
 		TCppClassTypeTraits<ABountyDashCharacter>::IsAbstract,
@@ -349,7 +447,7 @@ void EmptyLinkFunctionForGeneratedCodeBountyDashCharacter() {}
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(ABountyDashCharacter, 1055921132);
+	IMPLEMENT_CLASS(ABountyDashCharacter, 3746516504);
 	template<> BOUNTYDASH_API UClass* StaticClass<ABountyDashCharacter>()
 	{
 		return ABountyDashCharacter::StaticClass();

@@ -4,7 +4,9 @@
 
 #include "CoreMinimal.h"
 #include "GameFramework/Character.h"
+#include "PowerUpObject.h"
 #include "BountyDashCharacter.generated.h"
+
 
 UCLASS()
 class BOUNTYDASH_API ABountyDashCharacter : public ACharacter
@@ -65,5 +67,33 @@ protected:
 
 	UFUNCTION()
 		void MyOnComponentEndOverlap(class UPrimitiveComponent* OverlappedComp, AActor* OtherActor, class  UPrimitiveComponent* OtherComp, int32 OtherBodyIndex);
+
+public:
+	void PowerUp(EPowerUp Type);
+
+protected:
+	UPROPERTY(EditAnywhere, Category = PowerUps)
+		float SmashTime;
+	UPROPERTY(EditAnywhere, Category = PowerUps)
+		float MagnetTime;
+	UPROPERTY(EditAnywhere, Category = PowerUps)
+		float MagnetReach;
+
+private:
+	bool CanSmash;
+	bool CanMagnet;
+
+protected:
+	UFUNCTION()
+		void StopSmash();
+
+	UFUNCTION()
+		void StopMagnet();
+
+protected:
+	void CoinMagnet();
+
+public:
+	int GetScore();
 
 };

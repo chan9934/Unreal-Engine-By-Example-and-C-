@@ -2,8 +2,8 @@
 	"RemapUnityFiles": 
 	{
 		"Module.PowerUpPlugin.cpp.obj": [
-			"PowerUpObject.cpp.obj",
-			"PowerUpPlugin.cpp.obj"
+			"PowerUpPlugin.cpp.obj",
+			"PowerUpObject.cpp.obj"
 		],
 		"Module.PowerUpPlugin.gen.cpp.obj": [
 			"PowerUpObject.gen.cpp.obj",

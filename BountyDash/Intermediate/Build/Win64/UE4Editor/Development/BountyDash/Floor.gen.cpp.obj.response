@@ -236,6 +236,9 @@
 /I D:\HelloUnreal\BountyDash\Plugins\PowerUpPlugin\Intermediate\Build\Win64\UE4Editor\Inc\PowerUpPlugin
 /I D:\HelloUnreal\BountyDash\Plugins\PowerUpPlugin\Source
 /I D:\HelloUnreal\BountyDash\Plugins\PowerUpPlugin\Source\PowerUpPlugin\Public
+/I ..\Plugins\Runtime\ApexDestruction\Intermediate\Build\Win64\UE4Editor\Inc\ApexDestruction
+/I ..\Plugins\Runtime\ApexDestruction\Source
+/I ..\Plugins\Runtime\ApexDestruction\Source\ApexDestruction\Public
 /I ThirdParty\PhysX3\PxShared\include
 /I ThirdParty\PhysX3\PxShared\include\cudamanager
 /I ThirdParty\PhysX3\PxShared\include\filebuf

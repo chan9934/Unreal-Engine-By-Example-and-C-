@@ -21,8 +21,8 @@ void EmptyLinkFunctionForGeneratedCodeBountyDash_init() {}
 				nullptr,
 				0,
 				PKG_CompiledIn | 0x00000000,
-				0xFFB8405D,
-				0x5CA911E9,
+				0x71529C56,
+				0x8D355A50,
 				METADATA_PARAMS(nullptr, 0)
 			};
 			UE4CodeGen_Private::ConstructUPackage(ReturnPackage, PackageParams);

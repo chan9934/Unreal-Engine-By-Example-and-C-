@@ -8,6 +8,12 @@ D:\HelloUnreal\BountyDash\Source\BountyDash\Coin.h
 D:\HelloUnreal\BountyDash\Source\BountyDash\Obstacle.h
 D:\HelloUnreal\BountyDash\Source\BountyDash\BountyDashObject.h
 D:\HelloUnreal\BountyDash\Intermediate\Build\Win64\UE4Editor\Inc\BountyDash\BountyDashObject.generated.h
+D:\UE_4.27\Engine\Plugins\Runtime\ApexDestruction\Source\ApexDestruction\Public\DestructibleComponent.h
+D:\UE_4.27\Engine\Plugins\Runtime\ApexDestruction\Source\ApexDestruction\Public\ApexDestructionCustomPayload.h
+D:\UE_4.27\Engine\Source\Runtime\Engine\Public\CustomPhysXPayload.h
+D:\UE_4.27\Engine\Source\Runtime\Engine\Public\DestructibleInterface.h
+D:\UE_4.27\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\DestructibleInterface.generated.h
+D:\UE_4.27\Engine\Plugins\Runtime\ApexDestruction\Intermediate\Build\Win64\UE4Editor\Inc\ApexDestruction\DestructibleComponent.generated.h
 D:\HelloUnreal\BountyDash\Intermediate\Build\Win64\UE4Editor\Inc\BountyDash\Obstacle.generated.h
 D:\HelloUnreal\BountyDash\Intermediate\Build\Win64\UE4Editor\Inc\BountyDash\Coin.generated.h
 D:\HelloUnreal\BountyDash\Source\BountyDash\Floor.h
@@ -17,3 +23,5 @@ D:\UE_4.27\Engine\Source\Runtime\Engine\Classes\Components/ShapeComponent.h
 D:\UE_4.27\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\ShapeComponent.generated.h
 D:\UE_4.27\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\SphereComponent.generated.h
 D:\UE_4.27\Engine\Source\Runtime\Engine\Public\EngineUtils.h
+D:\HelloUnreal\BountyDash\Source\BountyDash\BountyDashPowerUp.h
+D:\HelloUnreal\BountyDash\Intermediate\Build\Win64\UE4Editor\Inc\BountyDash\BountyDashPowerUp.generated.h

@@ -23,11 +23,14 @@ private:
 	virtual void Tick(float DeltaSeconds) override;
 
 
-	virtual void MyOnActorOverlap(AActor* OverlappedActor, AActor* otherActor)override;
+	virtual void MyOnActorOverlap(AActor* OverlappedActor, AActor* OtherActor)override;
 
 protected:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 		class UStaticMeshComponent* Mesh;
+
+public:
+	bool BeingPulled;
 
 
 

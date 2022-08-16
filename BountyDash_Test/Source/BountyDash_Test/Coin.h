@@ -9,7 +9,7 @@
 #include "Coin.generated.h"
 
 UCLASS()
-class BOUNTYDASH_TEST_API ACoin : public AObstacle
+class BOUNTYDASH_TEST_API ACoin : public ABountyDashObject
 {
 	GENERATED_BODY()
 	
@@ -25,7 +25,8 @@ public:
 private:
 	virtual void MyOnActorOverlap(AActor* OverlappedActor, AActor* otherActor)override;
 
-public:
-	void ScoreUp();
+protected:
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	class UStaticMeshComponent* Mesh;
 
 };

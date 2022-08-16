@@ -16,6 +16,7 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 #define BountyDash_Source_BountyDash_BountyDashGameMode_h_13_SPARSE_DATA
 #define BountyDash_Source_BountyDash_BountyDashGameMode_h_13_RPC_WRAPPERS \
  \
+	DECLARE_FUNCTION(execTick); \
 	DECLARE_FUNCTION(execGetGameLevel); \
 	DECLARE_FUNCTION(execGetGameSpeed); \
 	DECLARE_FUNCTION(execGetInvGameSpeed);
@@ -23,6 +24,7 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 
 #define BountyDash_Source_BountyDash_BountyDashGameMode_h_13_RPC_WRAPPERS_NO_PURE_DECLS \
  \
+	DECLARE_FUNCTION(execTick); \
 	DECLARE_FUNCTION(execGetGameLevel); \
 	DECLARE_FUNCTION(execGetGameSpeed); \
 	DECLARE_FUNCTION(execGetInvGameSpeed);
@@ -74,7 +76,8 @@ public: \
 	FORCEINLINE static uint32 __PPO__gameSpeed() { return STRUCT_OFFSET(ABountyDashGameMode, gameSpeed); } \
 	FORCEINLINE static uint32 __PPO__gameLevel() { return STRUCT_OFFSET(ABountyDashGameMode, gameLevel); } \
 	FORCEINLINE static uint32 __PPO__numCoinsForSpeedIncrease() { return STRUCT_OFFSET(ABountyDashGameMode, numCoinsForSpeedIncrease); } \
-	FORCEINLINE static uint32 __PPO__gameSpeedIncrease() { return STRUCT_OFFSET(ABountyDashGameMode, gameSpeedIncrease); }
+	FORCEINLINE static uint32 __PPO__gameSpeedIncrease() { return STRUCT_OFFSET(ABountyDashGameMode, gameSpeedIncrease); } \
+	FORCEINLINE static uint32 __PPO__RunTime() { return STRUCT_OFFSET(ABountyDashGameMode, RunTime); }
 
 
 #define BountyDash_Source_BountyDash_BountyDashGameMode_h_10_PROLOG

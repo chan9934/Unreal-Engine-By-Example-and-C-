@@ -5,6 +5,7 @@
 #include "BountyDashGameMode.h"
 #include "BountyDash.h"
 #include "Components/SphereComponent.h"
+#include "DestructibleComponent.h"
 
 // Sets default values
 AObstacle::AObstacle()
@@ -13,9 +14,14 @@ AObstacle::AObstacle()
 	PrimaryActorTick.bCanEverTick = true;
 
 	
-	Mesh = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("Mesh"));
+	Mesh = CreateDefaultSubobject<UDestructibleComponent>(TEXT("Mesh"));
 	check(Mesh);
 	Mesh->AttachTo(Collider);
 	Mesh->SetCollisionResponseToAllChannels(ECR_Ignore);
 
+}
+
+UDestructibleComponent* AObstacle::GetDestructable()
+{
+	return Mesh;
 }

@@ -13,6 +13,7 @@
 #include "EngineUtils.h"
 #include "BountyDashGameMode.h"
 #include "BountyDash.h"
+#include "Coin.h"
 #include "Obstacle.h"
 
 // Sets default values
@@ -104,6 +105,10 @@ void ABountyDashCharacter::Tick(float DeltaTime)
 		float moveSpeed = GetCustomGameMode<ABountyDashGameMode>(GetWorld())->GetInvGameSpeed();
 		AddActorLocalOffset(FVector(moveSpeed, 0.0f, 0.0f));
 	}
+	if (CanMagnet)
+	{
+		CoinMagnet();
+	}
 
 }
 
@@ -163,7 +168,15 @@ void ABountyDashCharacter::MyOnComponentOverlap(UPrimitiveComponent* OverlappedC
 
 		if (AngleBetween < 60.0f)
 		{
-			bBeingPushed = true;
+			AObstacle* pObs = Cast<AObstacle>(OtherActor);
+			if (pObs && CanSmash)
+			{
+				pObs->GetDestructable()->ApplyRadiusDamage(10000, GetActorLocation(), 10000, 10000, true);
+			}
+			else
+			{
+				bBeingPushed = true;
+			}
 		}
 	}
 }
@@ -177,3 +190,62 @@ void ABountyDashCharacter::ScoreUp()
 {
 }
 
+void ABountyDashCharacter::PowerUp(EPowerUp Type)
+{
+	switch (Type)
+	{
+		case EPowerUp::SPEED:
+		{
+			GetCustomGameMode<ABountyDashGameMode>(GetWorld())->ReduceGameSpeed();
+			break;
+		}
+
+		case EPowerUp::SMASH:
+		{
+			CanSmash = true;
+			FTimerHandle newTimer;
+			GetWorld()->GetTimerManager().SetTimer(newTimer, this, &ABountyDashCharacter::StopSmash, SmashTime, false);
+			break;
+		}
+		case EPowerUp::MAGNET:
+		{
+			CanMagnet = true;
+			FTimerHandle newTimer;
+			GetWorld()->GetTimerManager().SetTimer(newTimer, this, &ABountyDashCharacter::StopMagnet, MagnetTime, false);
+			break;
+		}
+		default:
+			break;
+
+	}
+}
+
+void ABountyDashCharacter::StopSmash()
+{
+	CanSmash = false;
+}
+
+void ABountyDashCharacter::StopMagnet()
+{
+	CanMagnet = false;
+}
+
+void ABountyDashCharacter::CoinMagnet()
+{
+	for (TActorIterator<ACoin>CoinIter(GetWorld()); CoinIter; ++CoinIter)
+	{
+		FVector between = GetActorLocation() - CoinIter->GetActorLocation();
+		if (FMath::Abs(between.Size()) < MagnetReach)
+		{
+			FVector CoinPos = FMath::Lerp((*CoinIter)->GetActorLocation(), GetActorLocation(), 0.2f);
+			(*CoinIter)->SetActorLocation(CoinPos);
+			(*CoinIter)->BeingPulled = true;
+
+		}
+	}
+}
+
+int ABountyDashCharacter::GetScore()
+{
+	return Score;
+}

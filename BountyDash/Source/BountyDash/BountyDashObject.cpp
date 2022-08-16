@@ -18,7 +18,7 @@ ABountyDashObject::ABountyDashObject()
 
 	Collider->SetCollisionProfileName("OverlapAllDynamic");
 
-	OnActorBeginOverlap.AddDynamic(this, &ABountyDashObject::MyOnActorEndOverlap);
+	OnActorBeginOverlap.AddDynamic(this, &ABountyDashObject::MyOnActorOverlap);
 	OnActorEndOverlap.AddDynamic(this, &ABountyDashObject::MyOnActorEndOverlap);
 
 }

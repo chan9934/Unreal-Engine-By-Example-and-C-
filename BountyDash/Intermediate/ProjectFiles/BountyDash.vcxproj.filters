@@ -3,7 +3,7 @@
   <ItemGroup>
     <None Include="..\..\BountyDash.uproject" />
     <Filter Include="Source">
-      <UniqueIdentifier>{9D247357-3E5D-48B4-8615-8C6519774A08}</UniqueIdentifier>
+      <UniqueIdentifier>{77C6F913-4C4B-4EEC-B9A2-022B86636D1F}</UniqueIdentifier>
     </Filter>
     <None Include="..\..\Source\BountyDash.Target.cs">
       <Filter>Source</Filter>
@@ -12,7 +12,7 @@
       <Filter>Source</Filter>
     </None>
     <Filter Include="Config">
-      <UniqueIdentifier>{7FBA2D08-B7C7-405B-8AFF-EC9C568A2307}</UniqueIdentifier>
+      <UniqueIdentifier>{F5B82FF2-80CD-4036-99B9-A86DF9E8BC58}</UniqueIdentifier>
     </Filter>
     <None Include="..\..\Config\DefaultEditor.ini">
       <Filter>Config</Filter>
@@ -27,22 +27,22 @@
       <Filter>Config</Filter>
     </None>
     <Filter Include="Plugins">
-      <UniqueIdentifier>{1F723871-A218-4AE1-A2C1-18D14C1FF4F8}</UniqueIdentifier>
+      <UniqueIdentifier>{49C2CD90-5AFB-43AA-8BA1-60C03AEFE87E}</UniqueIdentifier>
     </Filter>
     <Filter Include="Plugins\PowerUpPlugin">
-      <UniqueIdentifier>{58A703EA-1BA5-47CC-AA07-5824265FC3A2}</UniqueIdentifier>
+      <UniqueIdentifier>{07FF323A-193A-44BA-8985-9894BBB001BA}</UniqueIdentifier>
     </Filter>
     <Filter Include="Plugins\PowerUpPlugin\Source">
-      <UniqueIdentifier>{B8C1EA51-EB42-4A89-8ED4-D6BB6880241D}</UniqueIdentifier>
+      <UniqueIdentifier>{294FE502-EBD7-4E30-851C-2FDEA31ABCC3}</UniqueIdentifier>
     </Filter>
     <Filter Include="Plugins\PowerUpPlugin\Source\PowerUpPlugin">
-      <UniqueIdentifier>{D80FBD5C-4E10-4C94-AEA0-3245F1C5BE13}</UniqueIdentifier>
+      <UniqueIdentifier>{233738F5-C33C-44BC-9ACF-CB30988A841E}</UniqueIdentifier>
     </Filter>
     <None Include="..\..\Plugins\PowerUpPlugin\Source\PowerUpPlugin\PowerUpPlugin.Build.cs">
       <Filter>Plugins\PowerUpPlugin\Source\PowerUpPlugin</Filter>
     </None>
     <Filter Include="Plugins\PowerUpPlugin\Source\PowerUpPlugin\Private">
-      <UniqueIdentifier>{548FD0AD-CB5B-481D-967D-E0B992ED0F85}</UniqueIdentifier>
+      <UniqueIdentifier>{56072112-18C5-4293-8734-EBC4A1AC2347}</UniqueIdentifier>
     </Filter>
     <ClCompile Include="..\..\Plugins\PowerUpPlugin\Source\PowerUpPlugin\Private\PowerUpObject.cpp">
       <Filter>Plugins\PowerUpPlugin\Source\PowerUpPlugin\Private</Filter>
@@ -51,7 +51,7 @@
       <Filter>Plugins\PowerUpPlugin\Source\PowerUpPlugin\Private</Filter>
     </ClCompile>
     <Filter Include="Plugins\PowerUpPlugin\Source\PowerUpPlugin\Public">
-      <UniqueIdentifier>{13EF3188-79FD-48F5-B0F7-0DF4E4615DCC}</UniqueIdentifier>
+      <UniqueIdentifier>{9FE1FEE5-2C84-4701-9999-E4D7370B0BB5}</UniqueIdentifier>
     </Filter>
     <ClInclude Include="..\..\Plugins\PowerUpPlugin\Source\PowerUpPlugin\Public\PowerUpObject.h">
       <Filter>Plugins\PowerUpPlugin\Source\PowerUpPlugin\Public</Filter>
@@ -63,13 +63,13 @@
       <Filter>Plugins\PowerUpPlugin</Filter>
     </None>
     <Filter Include="Plugins\PowerUpPlugin\Resources">
-      <UniqueIdentifier>{F3AD2ED1-9EB5-46C4-862B-BAE68E397F20}</UniqueIdentifier>
+      <UniqueIdentifier>{F618CEE7-AEBB-4C27-B11C-4FF9B97BD4C0}</UniqueIdentifier>
     </Filter>
     <None Include="..\..\Plugins\PowerUpPlugin\Resources\Icon128.png">
       <Filter>Plugins\PowerUpPlugin\Resources</Filter>
     </None>
     <Filter Include="Source\BountyDash">
-      <UniqueIdentifier>{7096C8BB-9C4F-4B8A-BA2B-436FAA55BDA6}</UniqueIdentifier>
+      <UniqueIdentifier>{51CEF5AD-F638-4468-8511-26CBD7C9720B}</UniqueIdentifier>
     </Filter>
     <None Include="..\..\Source\BountyDash\BountyDash.Build.cs">
       <Filter>Source\BountyDash</Filter>
@@ -96,6 +96,12 @@
       <Filter>Source\BountyDash</Filter>
     </ClCompile>
     <ClInclude Include="..\..\Source\BountyDash\BountyDashGameModeBase.h">
+      <Filter>Source\BountyDash</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\BountyDash\BountyDashHUD.cpp">
+      <Filter>Source\BountyDash</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\BountyDash\BountyDashHUD.h">
       <Filter>Source\BountyDash</Filter>
     </ClInclude>
     <ClCompile Include="..\..\Source\BountyDash\BountyDashObject.cpp">

@@ -11,6 +11,7 @@
 
 ACoin::ACoin()
 {
+	PrimaryActorTick.bCanEverTick = true;
 	Mesh = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("Mesh"));
 
 	check(Mesh);
@@ -27,13 +28,13 @@ void ACoin::Tick(float DeltaTime)
 	Mesh->AddLocalRotation(FRotator(5.0f, 0.0f, 0.0f));
 }
 
-void ACoin::MyOnActorOverlap(AActor* OverlappedActor, AActor* otherActor)
+void ACoin::MyOnActorOverlap(AActor* OverlappedActor, AActor* OtherActor)
 {
-	if (otherActor->GetClass()->IsChildOf(AObstacle::StaticClass()))
+	if (OtherActor->GetClass()->IsChildOf(AObstacle::StaticClass())&& !BeingPulled)
 	{
 		USphereComponent* thisSphere = Cast<USphereComponent>(GetComponentByClass(USphereComponent::StaticClass()));
 
-		USphereComponent* otherSphere = Cast<USphereComponent>(otherActor->GetComponentByClass(USphereComponent::StaticClass()));
+		USphereComponent* otherSphere = Cast<USphereComponent>(OtherActor->GetComponentByClass(USphereComponent::StaticClass()));
 
 		if (otherSphere)
 		{
@@ -41,9 +42,9 @@ void ACoin::MyOnActorOverlap(AActor* OverlappedActor, AActor* otherActor)
 		}
 	}
 
-	if (otherActor->GetClass()->IsChildOf(ABountyDashCharacter::StaticClass()))
+	if (OtherActor->GetClass()->IsChildOf(ABountyDashCharacter::StaticClass()))
 	{
-		ABountyDashCharacter* myChar = Cast<ABountyDashCharacter>(otherActor);
+		ABountyDashCharacter* myChar = Cast<ABountyDashCharacter>(OtherActor);
 		myChar->ScoreUp();
 		GetWorld()->DestroyActor(this);
 	}

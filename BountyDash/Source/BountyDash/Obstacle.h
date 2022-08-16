@@ -4,6 +4,7 @@
 
 #include "CoreMinimal.h"
 #include "BountyDashObject.h"
+#include "DestructibleComponent.h"
 #include "Obstacle.generated.h"
 
 UCLASS(BlueprintType)
@@ -11,13 +12,16 @@ class BOUNTYDASH_API AObstacle : public ABountyDashObject
 {
 	GENERATED_BODY()
 
-	
-public:	
+
+public:
 	// Sets default values for this actor's properties
 	AObstacle();
-public:
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-		class UStaticMeshComponent* Mesh;
+	UDestructibleComponent* GetDestructable();
+
+protected:
+
+	UPROPERTY(EditAnywhere)
+		UDestructibleComponent* Mesh;
 
 };

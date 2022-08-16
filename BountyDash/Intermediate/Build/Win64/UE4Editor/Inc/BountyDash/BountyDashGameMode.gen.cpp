@@ -18,6 +18,14 @@ void EmptyLinkFunctionForGeneratedCodeBountyDashGameMode() {}
 	ENGINE_API UClass* Z_Construct_UClass_AGameMode();
 	UPackage* Z_Construct_UPackage__Script_BountyDash();
 // End Cross Module References
+	DEFINE_FUNCTION(ABountyDashGameMode::execTick)
+	{
+		P_GET_PROPERTY(FFloatProperty,Z_Param_DeltaSeconds);
+		P_FINISH;
+		P_NATIVE_BEGIN;
+		P_THIS->Tick(Z_Param_DeltaSeconds);
+		P_NATIVE_END;
+	}
 	DEFINE_FUNCTION(ABountyDashGameMode::execGetGameLevel)
 	{
 		P_FINISH;
@@ -46,6 +54,7 @@ void EmptyLinkFunctionForGeneratedCodeBountyDashGameMode() {}
 			{ "GetGameLevel", &ABountyDashGameMode::execGetGameLevel },
 			{ "GetGameSpeed", &ABountyDashGameMode::execGetGameSpeed },
 			{ "GetInvGameSpeed", &ABountyDashGameMode::execGetInvGameSpeed },
+			{ "Tick", &ABountyDashGameMode::execTick },
 		};
 		FNativeFunctionRegistrar::RegisterFunctions(Class, Funcs, UE_ARRAY_COUNT(Funcs));
 	}
@@ -145,6 +154,38 @@ void EmptyLinkFunctionForGeneratedCodeBountyDashGameMode() {}
 		}
 		return ReturnFunction;
 	}
+	struct Z_Construct_UFunction_ABountyDashGameMode_Tick_Statics
+	{
+		struct BountyDashGameMode_eventTick_Parms
+		{
+			float DeltaSeconds;
+		};
+		static const UE4CodeGen_Private::FFloatPropertyParams NewProp_DeltaSeconds;
+		static const UE4CodeGen_Private::FPropertyParamsBase* const PropPointers[];
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UE4CodeGen_Private::FFunctionParams FuncParams;
+	};
+	const UE4CodeGen_Private::FFloatPropertyParams Z_Construct_UFunction_ABountyDashGameMode_Tick_Statics::NewProp_DeltaSeconds = { "DeltaSeconds", nullptr, (EPropertyFlags)0x0010000000000080, UE4CodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(BountyDashGameMode_eventTick_Parms, DeltaSeconds), METADATA_PARAMS(nullptr, 0) };
+	const UE4CodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_ABountyDashGameMode_Tick_Statics::PropPointers[] = {
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_ABountyDashGameMode_Tick_Statics::NewProp_DeltaSeconds,
+	};
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_ABountyDashGameMode_Tick_Statics::Function_MetaDataParams[] = {
+		{ "ModuleRelativePath", "BountyDashGameMode.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FFunctionParams Z_Construct_UFunction_ABountyDashGameMode_Tick_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_ABountyDashGameMode, nullptr, "Tick", nullptr, nullptr, sizeof(BountyDashGameMode_eventTick_Parms), Z_Construct_UFunction_ABountyDashGameMode_Tick_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_ABountyDashGameMode_Tick_Statics::PropPointers), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x00020400, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_ABountyDashGameMode_Tick_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_ABountyDashGameMode_Tick_Statics::Function_MetaDataParams)) };
+	UFunction* Z_Construct_UFunction_ABountyDashGameMode_Tick()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UE4CodeGen_Private::ConstructUFunction(ReturnFunction, Z_Construct_UFunction_ABountyDashGameMode_Tick_Statics::FuncParams);
+		}
+		return ReturnFunction;
+	}
 	UClass* Z_Construct_UClass_ABountyDashGameMode_NoRegister()
 	{
 		return ABountyDashGameMode::StaticClass();
@@ -172,6 +213,10 @@ void EmptyLinkFunctionForGeneratedCodeBountyDashGameMode() {}
 		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_gameSpeedIncrease_MetaData[];
 #endif
 		static const UE4CodeGen_Private::FFloatPropertyParams NewProp_gameSpeedIncrease;
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_RunTime_MetaData[];
+#endif
+		static const UE4CodeGen_Private::FFloatPropertyParams NewProp_RunTime;
 		static const UE4CodeGen_Private::FPropertyParamsBase* const PropPointers[];
 		static const FCppClassTypeInfoStatic StaticCppClassTypeInfo;
 		static const UE4CodeGen_Private::FClassParams ClassParams;
@@ -184,6 +229,7 @@ void EmptyLinkFunctionForGeneratedCodeBountyDashGameMode() {}
 		{ &Z_Construct_UFunction_ABountyDashGameMode_GetGameLevel, "GetGameLevel" }, // 3955691245
 		{ &Z_Construct_UFunction_ABountyDashGameMode_GetGameSpeed, "GetGameSpeed" }, // 267298648
 		{ &Z_Construct_UFunction_ABountyDashGameMode_GetInvGameSpeed, "GetInvGameSpeed" }, // 1357744294
+		{ &Z_Construct_UFunction_ABountyDashGameMode_Tick, "Tick" }, // 3232378850
 	};
 #if WITH_METADATA
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ABountyDashGameMode_Statics::Class_MetaDataParams[] = {
@@ -220,11 +266,18 @@ void EmptyLinkFunctionForGeneratedCodeBountyDashGameMode() {}
 	};
 #endif
 	const UE4CodeGen_Private::FFloatPropertyParams Z_Construct_UClass_ABountyDashGameMode_Statics::NewProp_gameSpeedIncrease = { "gameSpeedIncrease", nullptr, (EPropertyFlags)0x0020080000000005, UE4CodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(ABountyDashGameMode, gameSpeedIncrease), METADATA_PARAMS(Z_Construct_UClass_ABountyDashGameMode_Statics::NewProp_gameSpeedIncrease_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_ABountyDashGameMode_Statics::NewProp_gameSpeedIncrease_MetaData)) };
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ABountyDashGameMode_Statics::NewProp_RunTime_MetaData[] = {
+		{ "ModuleRelativePath", "BountyDashGameMode.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FFloatPropertyParams Z_Construct_UClass_ABountyDashGameMode_Statics::NewProp_RunTime = { "RunTime", nullptr, (EPropertyFlags)0x0020080000000000, UE4CodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(ABountyDashGameMode, RunTime), METADATA_PARAMS(Z_Construct_UClass_ABountyDashGameMode_Statics::NewProp_RunTime_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_ABountyDashGameMode_Statics::NewProp_RunTime_MetaData)) };
 	const UE4CodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_ABountyDashGameMode_Statics::PropPointers[] = {
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ABountyDashGameMode_Statics::NewProp_gameSpeed,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ABountyDashGameMode_Statics::NewProp_gameLevel,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ABountyDashGameMode_Statics::NewProp_numCoinsForSpeedIncrease,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ABountyDashGameMode_Statics::NewProp_gameSpeedIncrease,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ABountyDashGameMode_Statics::NewProp_RunTime,
 	};
 	const FCppClassTypeInfoStatic Z_Construct_UClass_ABountyDashGameMode_Statics::StaticCppClassTypeInfo = {
 		TCppClassTypeTraits<ABountyDashGameMode>::IsAbstract,
@@ -253,7 +306,7 @@ void EmptyLinkFunctionForGeneratedCodeBountyDashGameMode() {}
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(ABountyDashGameMode, 1041756585);
+	IMPLEMENT_CLASS(ABountyDashGameMode, 3281393301);
 	template<> BOUNTYDASH_API UClass* StaticClass<ABountyDashGameMode>()
 	{
 		return ABountyDashGameMode::StaticClass();

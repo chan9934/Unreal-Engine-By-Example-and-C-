@@ -41,4 +41,40 @@ protected:
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 		float gameSpeedIncrease;
+
+public:
+	void ReduceGameSpeed();
+
+protected:
+	UPROPERTY()
+		float RunTime;
+
+public:
+	float GetRunTime();
+
+	UFUNCTION()
+		virtual void Tick(float DeltaSeconds)override;
+
+	UFUNCTION()
+		bool GetGameOver();
+
+	UFUNCTION()
+		void GameOver();
+
+	UFUNCTION()
+		void SetGamePaused(bool gamePaused);
+
+	UPROPERTY()
+		bool bGameOver;
+
+	UPROPERTY()
+		bool startGameOverCount;
+
+	UPROPERTY()
+		float timeTillGameOver;
+
+	UPROPERTY()
+		float gameOverTimer;
+
+	
 };
