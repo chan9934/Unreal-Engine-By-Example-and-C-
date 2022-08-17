@@ -96,4 +96,9 @@ protected:
 public:
 	int GetScore();
 
+protected:
+	void Reset();
+
+protected:
+	float KillPoint;
 };

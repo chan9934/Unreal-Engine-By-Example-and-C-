@@ -18,6 +18,28 @@ void EmptyLinkFunctionForGeneratedCodeBountyDashGameMode() {}
 	ENGINE_API UClass* Z_Construct_UClass_AGameMode();
 	UPackage* Z_Construct_UPackage__Script_BountyDash();
 // End Cross Module References
+	DEFINE_FUNCTION(ABountyDashGameMode::execSetGamePaused)
+	{
+		P_GET_UBOOL(Z_Param_gamePaused);
+		P_FINISH;
+		P_NATIVE_BEGIN;
+		P_THIS->SetGamePaused(Z_Param_gamePaused);
+		P_NATIVE_END;
+	}
+	DEFINE_FUNCTION(ABountyDashGameMode::execGameOver)
+	{
+		P_FINISH;
+		P_NATIVE_BEGIN;
+		P_THIS->GameOver();
+		P_NATIVE_END;
+	}
+	DEFINE_FUNCTION(ABountyDashGameMode::execGetGameOver)
+	{
+		P_FINISH;
+		P_NATIVE_BEGIN;
+		*(bool*)Z_Param__Result=P_THIS->GetGameOver();
+		P_NATIVE_END;
+	}
 	DEFINE_FUNCTION(ABountyDashGameMode::execTick)
 	{
 		P_GET_PROPERTY(FFloatProperty,Z_Param_DeltaSeconds);
@@ -51,12 +73,37 @@ void EmptyLinkFunctionForGeneratedCodeBountyDashGameMode() {}
 	{
 		UClass* Class = ABountyDashGameMode::StaticClass();
 		static const FNameNativePtrPair Funcs[] = {
+			{ "GameOver", &ABountyDashGameMode::execGameOver },
 			{ "GetGameLevel", &ABountyDashGameMode::execGetGameLevel },
+			{ "GetGameOver", &ABountyDashGameMode::execGetGameOver },
 			{ "GetGameSpeed", &ABountyDashGameMode::execGetGameSpeed },
 			{ "GetInvGameSpeed", &ABountyDashGameMode::execGetInvGameSpeed },
+			{ "SetGamePaused", &ABountyDashGameMode::execSetGamePaused },
 			{ "Tick", &ABountyDashGameMode::execTick },
 		};
 		FNativeFunctionRegistrar::RegisterFunctions(Class, Funcs, UE_ARRAY_COUNT(Funcs));
+	}
+	struct Z_Construct_UFunction_ABountyDashGameMode_GameOver_Statics
+	{
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UE4CodeGen_Private::FFunctionParams FuncParams;
+	};
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_ABountyDashGameMode_GameOver_Statics::Function_MetaDataParams[] = {
+		{ "ModuleRelativePath", "BountyDashGameMode.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FFunctionParams Z_Construct_UFunction_ABountyDashGameMode_GameOver_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_ABountyDashGameMode, nullptr, "GameOver", nullptr, nullptr, 0, nullptr, 0, RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x00020401, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_ABountyDashGameMode_GameOver_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_ABountyDashGameMode_GameOver_Statics::Function_MetaDataParams)) };
+	UFunction* Z_Construct_UFunction_ABountyDashGameMode_GameOver()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UE4CodeGen_Private::ConstructUFunction(ReturnFunction, Z_Construct_UFunction_ABountyDashGameMode_GameOver_Statics::FuncParams);
+		}
+		return ReturnFunction;
 	}
 	struct Z_Construct_UFunction_ABountyDashGameMode_GetGameLevel_Statics
 	{
@@ -87,6 +134,43 @@ void EmptyLinkFunctionForGeneratedCodeBountyDashGameMode() {}
 		if (!ReturnFunction)
 		{
 			UE4CodeGen_Private::ConstructUFunction(ReturnFunction, Z_Construct_UFunction_ABountyDashGameMode_GetGameLevel_Statics::FuncParams);
+		}
+		return ReturnFunction;
+	}
+	struct Z_Construct_UFunction_ABountyDashGameMode_GetGameOver_Statics
+	{
+		struct BountyDashGameMode_eventGetGameOver_Parms
+		{
+			bool ReturnValue;
+		};
+		static void NewProp_ReturnValue_SetBit(void* Obj);
+		static const UE4CodeGen_Private::FBoolPropertyParams NewProp_ReturnValue;
+		static const UE4CodeGen_Private::FPropertyParamsBase* const PropPointers[];
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UE4CodeGen_Private::FFunctionParams FuncParams;
+	};
+	void Z_Construct_UFunction_ABountyDashGameMode_GetGameOver_Statics::NewProp_ReturnValue_SetBit(void* Obj)
+	{
+		((BountyDashGameMode_eventGetGameOver_Parms*)Obj)->ReturnValue = 1;
+	}
+	const UE4CodeGen_Private::FBoolPropertyParams Z_Construct_UFunction_ABountyDashGameMode_GetGameOver_Statics::NewProp_ReturnValue = { "ReturnValue", nullptr, (EPropertyFlags)0x0010000000000580, UE4CodeGen_Private::EPropertyGenFlags::Bool | UE4CodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, 1, sizeof(bool), sizeof(BountyDashGameMode_eventGetGameOver_Parms), &Z_Construct_UFunction_ABountyDashGameMode_GetGameOver_Statics::NewProp_ReturnValue_SetBit, METADATA_PARAMS(nullptr, 0) };
+	const UE4CodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_ABountyDashGameMode_GetGameOver_Statics::PropPointers[] = {
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_ABountyDashGameMode_GetGameOver_Statics::NewProp_ReturnValue,
+	};
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_ABountyDashGameMode_GetGameOver_Statics::Function_MetaDataParams[] = {
+		{ "ModuleRelativePath", "BountyDashGameMode.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FFunctionParams Z_Construct_UFunction_ABountyDashGameMode_GetGameOver_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_ABountyDashGameMode, nullptr, "GetGameOver", nullptr, nullptr, sizeof(BountyDashGameMode_eventGetGameOver_Parms), Z_Construct_UFunction_ABountyDashGameMode_GetGameOver_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_ABountyDashGameMode_GetGameOver_Statics::PropPointers), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x00020401, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_ABountyDashGameMode_GetGameOver_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_ABountyDashGameMode_GetGameOver_Statics::Function_MetaDataParams)) };
+	UFunction* Z_Construct_UFunction_ABountyDashGameMode_GetGameOver()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UE4CodeGen_Private::ConstructUFunction(ReturnFunction, Z_Construct_UFunction_ABountyDashGameMode_GetGameOver_Statics::FuncParams);
 		}
 		return ReturnFunction;
 	}
@@ -154,6 +238,43 @@ void EmptyLinkFunctionForGeneratedCodeBountyDashGameMode() {}
 		}
 		return ReturnFunction;
 	}
+	struct Z_Construct_UFunction_ABountyDashGameMode_SetGamePaused_Statics
+	{
+		struct BountyDashGameMode_eventSetGamePaused_Parms
+		{
+			bool gamePaused;
+		};
+		static void NewProp_gamePaused_SetBit(void* Obj);
+		static const UE4CodeGen_Private::FBoolPropertyParams NewProp_gamePaused;
+		static const UE4CodeGen_Private::FPropertyParamsBase* const PropPointers[];
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UE4CodeGen_Private::FFunctionParams FuncParams;
+	};
+	void Z_Construct_UFunction_ABountyDashGameMode_SetGamePaused_Statics::NewProp_gamePaused_SetBit(void* Obj)
+	{
+		((BountyDashGameMode_eventSetGamePaused_Parms*)Obj)->gamePaused = 1;
+	}
+	const UE4CodeGen_Private::FBoolPropertyParams Z_Construct_UFunction_ABountyDashGameMode_SetGamePaused_Statics::NewProp_gamePaused = { "gamePaused", nullptr, (EPropertyFlags)0x0010000000000080, UE4CodeGen_Private::EPropertyGenFlags::Bool | UE4CodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, 1, sizeof(bool), sizeof(BountyDashGameMode_eventSetGamePaused_Parms), &Z_Construct_UFunction_ABountyDashGameMode_SetGamePaused_Statics::NewProp_gamePaused_SetBit, METADATA_PARAMS(nullptr, 0) };
+	const UE4CodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_ABountyDashGameMode_SetGamePaused_Statics::PropPointers[] = {
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_ABountyDashGameMode_SetGamePaused_Statics::NewProp_gamePaused,
+	};
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_ABountyDashGameMode_SetGamePaused_Statics::Function_MetaDataParams[] = {
+		{ "ModuleRelativePath", "BountyDashGameMode.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FFunctionParams Z_Construct_UFunction_ABountyDashGameMode_SetGamePaused_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_ABountyDashGameMode, nullptr, "SetGamePaused", nullptr, nullptr, sizeof(BountyDashGameMode_eventSetGamePaused_Parms), Z_Construct_UFunction_ABountyDashGameMode_SetGamePaused_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_ABountyDashGameMode_SetGamePaused_Statics::PropPointers), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x00020401, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_ABountyDashGameMode_SetGamePaused_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_ABountyDashGameMode_SetGamePaused_Statics::Function_MetaDataParams)) };
+	UFunction* Z_Construct_UFunction_ABountyDashGameMode_SetGamePaused()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UE4CodeGen_Private::ConstructUFunction(ReturnFunction, Z_Construct_UFunction_ABountyDashGameMode_SetGamePaused_Statics::FuncParams);
+		}
+		return ReturnFunction;
+	}
 	struct Z_Construct_UFunction_ABountyDashGameMode_Tick_Statics
 	{
 		struct BountyDashGameMode_eventTick_Parms
@@ -217,6 +338,24 @@ void EmptyLinkFunctionForGeneratedCodeBountyDashGameMode() {}
 		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_RunTime_MetaData[];
 #endif
 		static const UE4CodeGen_Private::FFloatPropertyParams NewProp_RunTime;
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_bGameOver_MetaData[];
+#endif
+		static void NewProp_bGameOver_SetBit(void* Obj);
+		static const UE4CodeGen_Private::FBoolPropertyParams NewProp_bGameOver;
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_startGameOverCount_MetaData[];
+#endif
+		static void NewProp_startGameOverCount_SetBit(void* Obj);
+		static const UE4CodeGen_Private::FBoolPropertyParams NewProp_startGameOverCount;
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_timeTillGameOver_MetaData[];
+#endif
+		static const UE4CodeGen_Private::FFloatPropertyParams NewProp_timeTillGameOver;
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_gameOverTimer_MetaData[];
+#endif
+		static const UE4CodeGen_Private::FFloatPropertyParams NewProp_gameOverTimer;
 		static const UE4CodeGen_Private::FPropertyParamsBase* const PropPointers[];
 		static const FCppClassTypeInfoStatic StaticCppClassTypeInfo;
 		static const UE4CodeGen_Private::FClassParams ClassParams;
@@ -226,9 +365,12 @@ void EmptyLinkFunctionForGeneratedCodeBountyDashGameMode() {}
 		(UObject* (*)())Z_Construct_UPackage__Script_BountyDash,
 	};
 	const FClassFunctionLinkInfo Z_Construct_UClass_ABountyDashGameMode_Statics::FuncInfo[] = {
+		{ &Z_Construct_UFunction_ABountyDashGameMode_GameOver, "GameOver" }, // 4180623252
 		{ &Z_Construct_UFunction_ABountyDashGameMode_GetGameLevel, "GetGameLevel" }, // 3955691245
+		{ &Z_Construct_UFunction_ABountyDashGameMode_GetGameOver, "GetGameOver" }, // 2216995389
 		{ &Z_Construct_UFunction_ABountyDashGameMode_GetGameSpeed, "GetGameSpeed" }, // 267298648
 		{ &Z_Construct_UFunction_ABountyDashGameMode_GetInvGameSpeed, "GetInvGameSpeed" }, // 1357744294
+		{ &Z_Construct_UFunction_ABountyDashGameMode_SetGamePaused, "SetGamePaused" }, // 3679470031
 		{ &Z_Construct_UFunction_ABountyDashGameMode_Tick, "Tick" }, // 3232378850
 	};
 #if WITH_METADATA
@@ -272,12 +414,48 @@ void EmptyLinkFunctionForGeneratedCodeBountyDashGameMode() {}
 	};
 #endif
 	const UE4CodeGen_Private::FFloatPropertyParams Z_Construct_UClass_ABountyDashGameMode_Statics::NewProp_RunTime = { "RunTime", nullptr, (EPropertyFlags)0x0020080000000000, UE4CodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(ABountyDashGameMode, RunTime), METADATA_PARAMS(Z_Construct_UClass_ABountyDashGameMode_Statics::NewProp_RunTime_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_ABountyDashGameMode_Statics::NewProp_RunTime_MetaData)) };
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ABountyDashGameMode_Statics::NewProp_bGameOver_MetaData[] = {
+		{ "ModuleRelativePath", "BountyDashGameMode.h" },
+	};
+#endif
+	void Z_Construct_UClass_ABountyDashGameMode_Statics::NewProp_bGameOver_SetBit(void* Obj)
+	{
+		((ABountyDashGameMode*)Obj)->bGameOver = 1;
+	}
+	const UE4CodeGen_Private::FBoolPropertyParams Z_Construct_UClass_ABountyDashGameMode_Statics::NewProp_bGameOver = { "bGameOver", nullptr, (EPropertyFlags)0x0010000000000000, UE4CodeGen_Private::EPropertyGenFlags::Bool | UE4CodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, 1, sizeof(bool), sizeof(ABountyDashGameMode), &Z_Construct_UClass_ABountyDashGameMode_Statics::NewProp_bGameOver_SetBit, METADATA_PARAMS(Z_Construct_UClass_ABountyDashGameMode_Statics::NewProp_bGameOver_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_ABountyDashGameMode_Statics::NewProp_bGameOver_MetaData)) };
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ABountyDashGameMode_Statics::NewProp_startGameOverCount_MetaData[] = {
+		{ "ModuleRelativePath", "BountyDashGameMode.h" },
+	};
+#endif
+	void Z_Construct_UClass_ABountyDashGameMode_Statics::NewProp_startGameOverCount_SetBit(void* Obj)
+	{
+		((ABountyDashGameMode*)Obj)->startGameOverCount = 1;
+	}
+	const UE4CodeGen_Private::FBoolPropertyParams Z_Construct_UClass_ABountyDashGameMode_Statics::NewProp_startGameOverCount = { "startGameOverCount", nullptr, (EPropertyFlags)0x0010000000000000, UE4CodeGen_Private::EPropertyGenFlags::Bool | UE4CodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, 1, sizeof(bool), sizeof(ABountyDashGameMode), &Z_Construct_UClass_ABountyDashGameMode_Statics::NewProp_startGameOverCount_SetBit, METADATA_PARAMS(Z_Construct_UClass_ABountyDashGameMode_Statics::NewProp_startGameOverCount_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_ABountyDashGameMode_Statics::NewProp_startGameOverCount_MetaData)) };
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ABountyDashGameMode_Statics::NewProp_timeTillGameOver_MetaData[] = {
+		{ "ModuleRelativePath", "BountyDashGameMode.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FFloatPropertyParams Z_Construct_UClass_ABountyDashGameMode_Statics::NewProp_timeTillGameOver = { "timeTillGameOver", nullptr, (EPropertyFlags)0x0010000000000000, UE4CodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(ABountyDashGameMode, timeTillGameOver), METADATA_PARAMS(Z_Construct_UClass_ABountyDashGameMode_Statics::NewProp_timeTillGameOver_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_ABountyDashGameMode_Statics::NewProp_timeTillGameOver_MetaData)) };
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ABountyDashGameMode_Statics::NewProp_gameOverTimer_MetaData[] = {
+		{ "ModuleRelativePath", "BountyDashGameMode.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FFloatPropertyParams Z_Construct_UClass_ABountyDashGameMode_Statics::NewProp_gameOverTimer = { "gameOverTimer", nullptr, (EPropertyFlags)0x0010000000000000, UE4CodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(ABountyDashGameMode, gameOverTimer), METADATA_PARAMS(Z_Construct_UClass_ABountyDashGameMode_Statics::NewProp_gameOverTimer_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_ABountyDashGameMode_Statics::NewProp_gameOverTimer_MetaData)) };
 	const UE4CodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_ABountyDashGameMode_Statics::PropPointers[] = {
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ABountyDashGameMode_Statics::NewProp_gameSpeed,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ABountyDashGameMode_Statics::NewProp_gameLevel,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ABountyDashGameMode_Statics::NewProp_numCoinsForSpeedIncrease,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ABountyDashGameMode_Statics::NewProp_gameSpeedIncrease,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ABountyDashGameMode_Statics::NewProp_RunTime,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ABountyDashGameMode_Statics::NewProp_bGameOver,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ABountyDashGameMode_Statics::NewProp_startGameOverCount,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ABountyDashGameMode_Statics::NewProp_timeTillGameOver,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ABountyDashGameMode_Statics::NewProp_gameOverTimer,
 	};
 	const FCppClassTypeInfoStatic Z_Construct_UClass_ABountyDashGameMode_Statics::StaticCppClassTypeInfo = {
 		TCppClassTypeTraits<ABountyDashGameMode>::IsAbstract,
@@ -306,7 +484,7 @@ void EmptyLinkFunctionForGeneratedCodeBountyDashGameMode() {}
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(ABountyDashGameMode, 3281393301);
+	IMPLEMENT_CLASS(ABountyDashGameMode, 1574068404);
 	template<> BOUNTYDASH_API UClass* StaticClass<ABountyDashGameMode>()
 	{
 		return ABountyDashGameMode::StaticClass();

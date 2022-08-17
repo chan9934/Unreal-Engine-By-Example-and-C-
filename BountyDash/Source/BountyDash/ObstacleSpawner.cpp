@@ -38,8 +38,12 @@ void AObstacleSpawner::BeginPlay()
 	for (TActorIterator<AFloor>FloorIter(GetWorld()); FloorIter; ++FloorIter)
 	{
 
-		KillPoint = FloorIter->GetKillPoint();
-		SpawnPoint = FloorIter->GetSpawnPoint();
+		if (FloorIter->GetWorld() == GetWorld())
+		{
+			KillPoint = FloorIter->GetKillPoint();
+			SpawnPoint = FloorIter->GetSpawnPoint();
+		}
+
 
 	}
 	TimeSinceLastSpawn = SpawnTimer;
@@ -85,7 +89,7 @@ void AObstacleSpawner::SpawnObstacle()
 			newObs->SetKillPoint(KillPoint);
 
 
-			USphereComponent* obsSphere = Cast<USphereComponent>(newObs->GetComponentByClass(StaticClass()));
+			USphereComponent* obsSphere = Cast<USphereComponent>(newObs->GetComponentByClass(USphereComponent::StaticClass()));
 
 			if (obsSphere)
 			{

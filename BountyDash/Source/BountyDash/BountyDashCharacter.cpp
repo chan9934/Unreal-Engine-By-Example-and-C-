@@ -15,6 +15,8 @@
 #include "BountyDash.h"
 #include "Coin.h"
 #include "Obstacle.h"
+#include "Kismet/GameplayStatics.h"
+#include "Floor.h"
 
 // Sets default values
 ABountyDashCharacter::ABountyDashCharacter()
@@ -82,6 +84,11 @@ void ABountyDashCharacter::BeginPlay()
 	TargetArray.Sort(SortPred);
 	CurrentLocation = ((TargetArray.Num() / 2) + (TargetArray.Num() % 2) - 1);
 
+	for (TActorIterator<AFloor> TargetIter(GetWorld()); TargetIter; ++TargetIter)
+	{
+		KillPoint = TargetIter->GetKillPoint();
+	}
+
 }
 
 // Called every frame
@@ -110,6 +117,11 @@ void ABountyDashCharacter::Tick(float DeltaTime)
 		CoinMagnet();
 	}
 
+	if (GetActorLocation().X < KillPoint)
+	{
+		GetCustomGameMode<ABountyDashGameMode>(GetWorld())->GameOver();
+	}
+
 }
 
 // Called to bind functionality to input
@@ -122,6 +134,7 @@ void ABountyDashCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInpu
 	InputComponent->BindAction("Jump", IE_Released, this, &ACharacter::StopJumping);
 	InputComponent->BindAction("MoveRight", IE_Pressed, this, &ABountyDashCharacter::MoveRight);
 	InputComponent->BindAction("MoveLeft", IE_Pressed, this, &ABountyDashCharacter::MoveLeft);
+	InputComponent->BindAction("Reset", IE_Pressed, this, &ABountyDashCharacter::Reset).bExecuteWhenPaused = true;
 
 
 }
@@ -248,4 +261,9 @@ void ABountyDashCharacter::CoinMagnet()
 int ABountyDashCharacter::GetScore()
 {
 	return Score;
+}
+
+void ABountyDashCharacter::Reset()
+{
+	UGameplayStatics::OpenLevel(GetWorld(), TEXT("BountyDashMap"));
 }

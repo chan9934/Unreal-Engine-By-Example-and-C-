@@ -16,6 +16,9 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 #define BountyDash_Source_BountyDash_BountyDashGameMode_h_13_SPARSE_DATA
 #define BountyDash_Source_BountyDash_BountyDashGameMode_h_13_RPC_WRAPPERS \
  \
+	DECLARE_FUNCTION(execSetGamePaused); \
+	DECLARE_FUNCTION(execGameOver); \
+	DECLARE_FUNCTION(execGetGameOver); \
 	DECLARE_FUNCTION(execTick); \
 	DECLARE_FUNCTION(execGetGameLevel); \
 	DECLARE_FUNCTION(execGetGameSpeed); \
@@ -24,6 +27,9 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 
 #define BountyDash_Source_BountyDash_BountyDashGameMode_h_13_RPC_WRAPPERS_NO_PURE_DECLS \
  \
+	DECLARE_FUNCTION(execSetGamePaused); \
+	DECLARE_FUNCTION(execGameOver); \
+	DECLARE_FUNCTION(execGetGameOver); \
 	DECLARE_FUNCTION(execTick); \
 	DECLARE_FUNCTION(execGetGameLevel); \
 	DECLARE_FUNCTION(execGetGameSpeed); \
