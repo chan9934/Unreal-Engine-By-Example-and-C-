@@ -8,6 +8,7 @@
 #include "Components/SphereComponent.h"
 #include "GameFramework/Actor.h"
 #include "BountyDashCharacter.h"
+#include "BountyDashParticle.h"
 
 ACoin::ACoin()
 {
@@ -47,6 +48,12 @@ void ACoin::MyOnActorOverlap(AActor* OverlappedActor, AActor* OtherActor)
 		ABountyDashCharacter* myChar = Cast<ABountyDashCharacter>(OtherActor);
 		myChar->ScoreUp();
 		GetWorld()->DestroyActor(this);
+
+		ABountyDashParticle* particleSys = GetWorld()->SpawnActor<ABountyDashParticle>(ABountyDashParticle::StaticClass(), GetTransform());
+		particleSys->SetKillPoint(GetKillPoint());
+
 	}
+
+
 }
 	

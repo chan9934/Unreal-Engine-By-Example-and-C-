@@ -8,6 +8,8 @@
 #include "Components/StaticMeshComponent.h"
 #include "Components/BoxComponent.h"
 #include "BountyDash.h"
+#include "DestroyedFloorPiece.h"
+#include "DestructibleComponent.h"
 
 // Sets default values
 AFloor::AFloor()
@@ -16,13 +18,13 @@ AFloor::AFloor()
 	PrimaryActorTick.bCanEverTick = true;
 	RootComponent = CreateDefaultSubobject<USceneComponent>(TEXT("Root"));
 
-	ConstructorHelpers::FObjectFinder<UStaticMesh>myMesh(TEXT("/Game/Geometry/Meshes/Mesh_Bounty_Floor.Mesh_Bounty_Floor"));
+	ConstructorHelpers::FObjectFinder<UStaticMesh>myMesh(TEXT("/Game/Static_Mesh/Destroyable_Mesh.Destroyable_Mesh"));
 
 	ConstructorHelpers::FObjectFinder<UMaterial>myMaterial(TEXT("/Game/StarterContent/Materials/M_Concrete_Tiles.M_Concrete_Tiles"));
-
+	
 	if (myMesh.Succeeded())
 	{
-		NumRepeatingMesh = 3;
+		NumRepeatingMesh = 30;
 
 		FBoxSphereBounds myBounds = myMesh.Object->GetBounds();
 		float XBounds = myBounds.BoxExtent.X * 2;
@@ -90,11 +92,23 @@ void AFloor::Tick(float DeltaTime)
 	{
 		Scene->AddLocalOffset(FVector(GetCustomGameMode<ABountyDashGameMode>(GetWorld())->GetInvGameSpeed(), 0.0f, 0.0f));
 		
+	
+
 		if (Scene->GetComponentTransform().GetLocation().X <= KillPoint)
 		{
+			ADestroyedFloorPiece* thisPiece = GetWorld()->SpawnActor<ADestroyedFloorPiece>(ADestroyedFloorPiece::StaticClass(), Scene->GetComponentTransform());
+			
+			if (thisPiece)
+			{
+				thisPiece->Destructable->ApplyDamage(100000, thisPiece->GetActorLocation(), FVector(-FMath::RandRange(-10, 10), -FMath::RandRange(-10, 10), -FMath::RandRange(-10, 10)), 10000);
+			
+			}
+
 			Scene->SetRelativeLocation(FVector(SpawnPoint, 0.0f, 0.0f));
 		}
 	}
+
+	
 	
 
 }

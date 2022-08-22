@@ -11,12 +11,12 @@ UCLASS()
 class BOUNTYDASH_API ABountyDashGameMode : public AGameMode
 {
 	GENERATED_BODY()
-private:
+public:
 
 	UPROPERTY()
 		float gameSpeed;
 
-	UPROPERTY()
+	UPROPERTY(BlueprintReadWrite, Category = gameplay)
 		int32 gameLevel;
 
 	//ÇÔ¼ö

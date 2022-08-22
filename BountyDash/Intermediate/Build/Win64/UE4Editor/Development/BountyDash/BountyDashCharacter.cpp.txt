@@ -84,3 +84,7 @@ D:\UE_4.27\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\GameplayStaticsT
 D:\UE_4.27\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\GameplayStatics.generated.h
 D:\HelloUnreal\BountyDash\Source\BountyDash\Floor.h
 D:\HelloUnreal\BountyDash\Intermediate\Build\Win64\UE4Editor\Inc\BountyDash\Floor.generated.h
+D:\UE_4.27\Engine\Source\Runtime\Engine\Classes\Sound/SoundCue.h
+D:\UE_4.27\Engine\Source\Runtime\Engine\Classes\Sound/SoundNode.h
+D:\UE_4.27\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\SoundNode.generated.h
+D:\UE_4.27\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\SoundCue.generated.h

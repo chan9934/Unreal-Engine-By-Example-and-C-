@@ -17,6 +17,7 @@
 #include "Obstacle.h"
 #include "Kismet/GameplayStatics.h"
 #include "Floor.h"
+#include "Sound/SoundCue.h"
 
 // Sets default values
 ABountyDashCharacter::ABountyDashCharacter()
@@ -65,6 +66,29 @@ ABountyDashCharacter::ABountyDashCharacter()
 	GetCapsuleComponent()->OnComponentEndOverlap.AddDynamic(this, &ABountyDashCharacter::MyOnComponentEndOverlap);
 
 	AutoPossessPlayer = EAutoReceiveInput::Player0;
+
+	hitObstacleSound = CreateDefaultSubobject<UAudioComponent>(TEXT("HitSound"));
+	hitObstacleSound->bAutoActivate = false;
+	hitObstacleSound->AttachTo(RootComponent);
+
+	ConstructorHelpers::FObjectFinder<USoundCue>mySoundCue(TEXT("/Game/Sound/Grunt_Cue.Grunt_Cue"));
+
+	if (mySoundCue.Succeeded())
+	{
+		hitObstacleSound->SetSound(mySoundCue.Object);
+	}
+
+	dingSound = CreateDefaultSubobject<UAudioComponent>(TEXT("Ding"));
+	dingSound->bAutoActivate = false;
+	dingSound->AttachTo(RootComponent);
+
+	ConstructorHelpers::FObjectFinder<USoundCue> myCue(TEXT("/Game/Sound/Ding_Cue.Ding_Cue"));
+
+	if (myCue.Succeeded())
+	{
+		dingSound->SetSound(myCue.Object);
+	}
+
 
 }
 
@@ -177,11 +201,16 @@ void ABountyDashCharacter::MyOnComponentOverlap(UPrimitiveComponent* OverlappedC
 		FVector vecBetween = OtherActor->GetActorLocation() - GetActorLocation();
 		float AngleBetween = FMath::Acos(FVector::DotProduct(vecBetween.GetSafeNormal(), GetActorForwardVector().GetSafeNormal()));
 
-		AngleBetween *= (180 / PI);
+		/*AngleBetween *= (180 / PI);*/
 
 		if (AngleBetween < 60.0f)
 		{
 			AObstacle* pObs = Cast<AObstacle>(OtherActor);
+
+			if (!bBeingPushed)
+			{
+				hitObstacleSound->Play();
+			}
 			if (pObs && CanSmash)
 			{
 				pObs->GetDestructable()->ApplyRadiusDamage(10000, GetActorLocation(), 10000, 10000, true);
@@ -196,12 +225,20 @@ void ABountyDashCharacter::MyOnComponentOverlap(UPrimitiveComponent* OverlappedC
 
 void ABountyDashCharacter::MyOnComponentEndOverlap(UPrimitiveComponent* OverlappedComp, AActor* OtherActor, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex)
 {
-	bBeingPushed = false;
+	if (OtherActor->GetClass()->IsChildOf(AObstacle::StaticClass()))
+	{
+		bBeingPushed = false;
+	}
+
 }
 
 void ABountyDashCharacter::ScoreUp()
 {
+	Score++;
+	GetCustomGameMode<ABountyDashGameMode>(GetWorld())->CharScoreUp(Score);
+	dingSound->Play();
 }
+
 
 void ABountyDashCharacter::PowerUp(EPowerUp Type)
 {

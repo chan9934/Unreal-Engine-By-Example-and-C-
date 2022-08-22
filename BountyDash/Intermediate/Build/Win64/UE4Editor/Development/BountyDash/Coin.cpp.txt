@@ -40,3 +40,5 @@ D:\UE_4.27\Engine\Source\Runtime\Core\Public\Internationalization/PolyglotTextDa
 D:\UE_4.27\Engine\Source\Runtime\CoreUObject\Public\AssetRegistry/ARFilter.h
 D:\HelloUnreal\BountyDash\Plugins\PowerUpPlugin\Intermediate\Build\Win64\UE4Editor\Inc\PowerUpPlugin\PowerUpObject.generated.h
 D:\HelloUnreal\BountyDash\Intermediate\Build\Win64\UE4Editor\Inc\BountyDash\BountyDashCharacter.generated.h
+D:\HelloUnreal\BountyDash\Source\BountyDash\BountyDashParticle.h
+D:\HelloUnreal\BountyDash\Intermediate\Build\Win64\UE4Editor\Inc\BountyDash\BountyDashParticle.generated.h

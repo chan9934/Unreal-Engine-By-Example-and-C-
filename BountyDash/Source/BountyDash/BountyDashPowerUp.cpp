@@ -57,7 +57,7 @@ void ABountyDashPowerUp::MyOnActorOverlap(AActor* OverlappedActor, AActor* Other
 
 		if (OtherSphere)
 		{
-			OtherActor->AddActorLocalOffset(FVector(0.0f, 0.0f, OtherSphere->GetUnscaledSphereRadius() + Collider->GetUnscaledSphereRadius() * 2));
+			AddActorLocalOffset(FVector(0.0f, 0.0f, (OtherSphere->GetUnscaledSphereRadius() * 2.0f) + Collider->GetUnscaledSphereRadius()));
 		}
 	}
 

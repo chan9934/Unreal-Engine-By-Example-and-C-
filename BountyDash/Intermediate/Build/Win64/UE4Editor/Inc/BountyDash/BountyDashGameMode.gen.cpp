@@ -387,13 +387,14 @@ void EmptyLinkFunctionForGeneratedCodeBountyDashGameMode() {}
 		{ "ModuleRelativePath", "BountyDashGameMode.h" },
 	};
 #endif
-	const UE4CodeGen_Private::FFloatPropertyParams Z_Construct_UClass_ABountyDashGameMode_Statics::NewProp_gameSpeed = { "gameSpeed", nullptr, (EPropertyFlags)0x0040000000000000, UE4CodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(ABountyDashGameMode, gameSpeed), METADATA_PARAMS(Z_Construct_UClass_ABountyDashGameMode_Statics::NewProp_gameSpeed_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_ABountyDashGameMode_Statics::NewProp_gameSpeed_MetaData)) };
+	const UE4CodeGen_Private::FFloatPropertyParams Z_Construct_UClass_ABountyDashGameMode_Statics::NewProp_gameSpeed = { "gameSpeed", nullptr, (EPropertyFlags)0x0010000000000000, UE4CodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(ABountyDashGameMode, gameSpeed), METADATA_PARAMS(Z_Construct_UClass_ABountyDashGameMode_Statics::NewProp_gameSpeed_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_ABountyDashGameMode_Statics::NewProp_gameSpeed_MetaData)) };
 #if WITH_METADATA
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ABountyDashGameMode_Statics::NewProp_gameLevel_MetaData[] = {
+		{ "Category", "gameplay" },
 		{ "ModuleRelativePath", "BountyDashGameMode.h" },
 	};
 #endif
-	const UE4CodeGen_Private::FIntPropertyParams Z_Construct_UClass_ABountyDashGameMode_Statics::NewProp_gameLevel = { "gameLevel", nullptr, (EPropertyFlags)0x0040000000000000, UE4CodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(ABountyDashGameMode, gameLevel), METADATA_PARAMS(Z_Construct_UClass_ABountyDashGameMode_Statics::NewProp_gameLevel_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_ABountyDashGameMode_Statics::NewProp_gameLevel_MetaData)) };
+	const UE4CodeGen_Private::FIntPropertyParams Z_Construct_UClass_ABountyDashGameMode_Statics::NewProp_gameLevel = { "gameLevel", nullptr, (EPropertyFlags)0x0010000000000004, UE4CodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(ABountyDashGameMode, gameLevel), METADATA_PARAMS(Z_Construct_UClass_ABountyDashGameMode_Statics::NewProp_gameLevel_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_ABountyDashGameMode_Statics::NewProp_gameLevel_MetaData)) };
 #if WITH_METADATA
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ABountyDashGameMode_Statics::NewProp_numCoinsForSpeedIncrease_MetaData[] = {
 		{ "Category", "BountyDashGameMode" },
@@ -484,7 +485,7 @@ void EmptyLinkFunctionForGeneratedCodeBountyDashGameMode() {}
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(ABountyDashGameMode, 1574068404);
+	IMPLEMENT_CLASS(ABountyDashGameMode, 2242730059);
 	template<> BOUNTYDASH_API UClass* StaticClass<ABountyDashGameMode>()
 	{
 		return ABountyDashGameMode::StaticClass();

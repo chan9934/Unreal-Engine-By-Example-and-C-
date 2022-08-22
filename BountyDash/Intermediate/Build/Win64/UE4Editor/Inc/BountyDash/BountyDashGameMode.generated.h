@@ -79,8 +79,6 @@ public: \
 
 
 #define BountyDash_Source_BountyDash_BountyDashGameMode_h_13_PRIVATE_PROPERTY_OFFSET \
-	FORCEINLINE static uint32 __PPO__gameSpeed() { return STRUCT_OFFSET(ABountyDashGameMode, gameSpeed); } \
-	FORCEINLINE static uint32 __PPO__gameLevel() { return STRUCT_OFFSET(ABountyDashGameMode, gameLevel); } \
 	FORCEINLINE static uint32 __PPO__numCoinsForSpeedIncrease() { return STRUCT_OFFSET(ABountyDashGameMode, numCoinsForSpeedIncrease); } \
 	FORCEINLINE static uint32 __PPO__gameSpeedIncrease() { return STRUCT_OFFSET(ABountyDashGameMode, gameSpeedIncrease); } \
 	FORCEINLINE static uint32 __PPO__RunTime() { return STRUCT_OFFSET(ABountyDashGameMode, RunTime); }
